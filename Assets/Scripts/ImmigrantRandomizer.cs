@@ -25,10 +25,18 @@ public struct RaceData
     public Animation allowedAnim;
     public Animation deniedAnim;
 
+    public AudioClip enterAudio;
+    public AudioClip allowedAudio;
+    public AudioClip deniedAudio;
+
     public string GetRandomName()
     {
         Debug.Assert(firstNames != null && lastNames != null);
-        return firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count)];
+        Debug.Assert(firstNames.Count != 0);
+        if (lastNames.Count == 0)
+            return firstNames[Random.Range(0, firstNames.Count)];
+        else 
+            return firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count)];
     }
 };
 

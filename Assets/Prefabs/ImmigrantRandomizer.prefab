@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7927948549290689148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7927948549290689146}
+  - component: {fileID: 7927948549290689147}
+  m_Layer: 5
+  m_Name: ImmigrantRandomizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7927948549290689146
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7927948549290689148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.69625, y: 0.69625, z: 0.69625}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 400, y: 224.77559}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7927948549290689147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7927948549290689148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33a701b5ecd8b34db3e67d32b3a4eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDate:
+    day: 14
+    month: 9
+    year: 2445
+  passportMaxExpirationDate:
+    day: 14
+    month: 9
+    year: 2452
+  passportPrefab: {fileID: 2335063765079734471, guid: a2b78c089bcdc734896638db64c0a5f9,
+    type: 3}
+  docSpawnCanvas: {fileID: 0}
+  docSpawnPos: {x: 0, y: 0, z: 0}
+  allRacesData:
+  - race: Humain
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2340
+    maxBirthday:
+      day: 31
+      month: 12
+      year: 2432
+    firstNames:
+    - John
+    - Nicolas
+    - Arthur
+    - Camille
+    - Thomas
+    - Maxile
+    - "Th\xE9o"
+    - Billy
+    - Titouan
+    - Vick
+    lastNames:
+    - Bulle
+    - Lys
+    - Cordellia
+    - Yue
+    - Lasyvia
+    - Niveuk
+    - Halblog
+    - Loop
+    - Visia
+    - Mastercard
+    defaultPlanet: 0
+    planetsIcon: {fileID: 0}
+    minWeight: 45
+    maxWeight: 150
+    minHeight: 150
+    maxHeight: 190
+    possibleSexes:
+    - M
+    - F
+    cities: []
+    photos: []
+    seal: {fileID: 0}
+    enterAnim: {fileID: 0}
+    allowedAnim: {fileID: 0}
+    deniedAnim: {fileID: 0}
+  - race: Skyddles
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2300
+    maxBirthday:
+      day: 31
+      month: 12
+      year: 2452
+    firstNames:
+    - Corki
+    - Loki
+    - Koki
+    - Moki
+    - Woki
+    - Lowki
+    - Laki
+    - Kaki
+    - Noki
+    - Zoko
+    lastNames:
+    - Kan
+    - Nan
+    - Lan
+    - Van
+    defaultPlanet: 3
+    planetsIcon: {fileID: 0}
+    minWeight: 10
+    maxWeight: 20
+    minHeight: 30
+    maxHeight: 60
+    possibleSexes:
+    - M
+    - F
+    cities: []
+    photos: []
+    seal: {fileID: 0}
+    enterAnim: {fileID: 0}
+    allowedAnim: {fileID: 0}
+    deniedAnim: {fileID: 0}
+  - race: Slimes
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2200
+    maxBirthday:
+      day: 31
+      month: 12
+      year: 2452
+    firstNames:
+    - Speckle
+    - Bloth
+    - Speck
+    - Wiggle
+    - Driblet
+    - Plop
+    - Capriole
+    - Octo
+    - Dribble
+    - Gumgum
+    lastNames: []
+    defaultPlanet: 2
+    planetsIcon: {fileID: 0}
+    minWeight: 100
+    maxWeight: 200
+    minHeight: 180
+    maxHeight: 230
+    possibleSexes:
+    - NB
+    cities: []
+    photos: []
+    seal: {fileID: 0}
+    enterAnim: {fileID: 0}
+    allowedAnim: {fileID: 0}
+    deniedAnim: {fileID: 0}
+  - race: Mek'ha
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2400
+    maxBirthday:
+      day: 31
+      month: 12
+      year: 2452
+    firstNames:
+    - Strider
+    - Walker
+    - Raid
+    - Scorpio
+    - Diplomat
+    - Patterouilleurs
+    - Impulse
+    - Nemesis
+    - Corsaire
+    - Panzer
+    lastNames: []
+    defaultPlanet: 1
+    planetsIcon: {fileID: 0}
+    minWeight: 80
+    maxWeight: 150
+    minHeight: 180
+    maxHeight: 200
+    possibleSexes:
+    - NB
+    cities: []
+    photos: []
+    seal: {fileID: 0}
+    enterAnim: {fileID: 0}
+    allowedAnim: {fileID: 0}
+    deniedAnim: {fileID: 0}
+  - race: Antropomorphe
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2420
+    maxBirthday:
+      day: 31
+      month: 12
+      year: 2452
+    firstNames:
+    - Plop
+    - Pellep
+    - Divvy
+    - Gluey
+    - Bip
+    - Bounce
+    - Jigger
+    - Octet
+    - Rupture
+    - Niko
+    lastNames: []
+    defaultPlanet: 0
+    planetsIcon: {fileID: 0}
+    minWeight: 160
+    maxWeight: 240
+    minHeight: 60
+    maxHeight: 180
+    possibleSexes:
+    - NB
+    - F
+    - M
+    cities: []
+    photos: []
+    seal: {fileID: 0}
+    enterAnim: {fileID: 0}
+    allowedAnim: {fileID: 0}
+    deniedAnim: {fileID: 0}
