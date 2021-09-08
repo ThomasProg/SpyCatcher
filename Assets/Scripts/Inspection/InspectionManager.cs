@@ -8,9 +8,14 @@ using System;
 public enum DataType
 { 
     None,
+    Name,
     Race,
     Planet,
+    Sex,
+    Birthday,
+    Birthplace,
     Weight,
+    Height,
 }
 
 public class InspectionManager : MonoBehaviour
@@ -23,6 +28,16 @@ public class InspectionManager : MonoBehaviour
 
     [SerializeField]
     Dictionary<DataType, string> incoherenceMessages = new Dictionary<DataType, string>();
+
+    Immigrant currentImmigrant = null;
+
+    [SerializeField]
+    GameObject characterPrefab;
+    [SerializeField]
+    Vector3 immigrantDefaultLocation = Vector3.zero;
+
+    [SerializeField]
+    ImmigrantRandomizer immigrantRandomizer;
 
     InspectionManager()
     {
@@ -98,10 +113,14 @@ public class InspectionManager : MonoBehaviour
         SetMessage(message);
     }
 
+    //public void 
+
+
     public void InspectItem(InspectionItem inspectedItem)
     {
         if (inspectedItems[0] == inspectedItem)
         {
+            
             inspectedItems[0] = null;
             return;
         }
@@ -115,5 +134,20 @@ public class InspectionManager : MonoBehaviour
         nextItemIndex = (nextItemIndex + 1) % 2;
 
         CheckIncoherence();
+    }
+
+    public void GenerateNewImmigrant()
+    {
+        currentImmigrant = Instantiate(characterPrefab, immigrantDefaultLocation, Quaternion.identity).GetComponent<Immigrant>();
+
+        immigrantRandomizer.SetRandomData(currentImmigrant);
+    }
+
+    private void Start()
+    {
+        if (currentImmigrant == null)
+        {
+            GenerateNewImmigrant();
+        }
     }
 }
