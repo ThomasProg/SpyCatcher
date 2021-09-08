@@ -17,7 +17,7 @@ public struct RaceData
     public int minHeight; // inclusive
     public int maxHeight; // exclusive
     public List<string> possibleSexes;
-    public List<string> cities;
+    public List<string> cities; 
     public List<Sprite> photos;
     public Sprite seal;
 
@@ -39,6 +39,14 @@ public struct RaceData
             return firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count)];
     }
 };
+
+[System.Serializable]
+public struct CharacterPhoto
+{
+    public Sprite photo;
+    public Sprite real;
+};
+
 
 
 public class ImmigrantRandomizer : MonoBehaviour
@@ -62,6 +70,8 @@ public class ImmigrantRandomizer : MonoBehaviour
     List<RaceData> allRacesData = new List<RaceData>();
 
     Dictionary<System.String, RaceData> allRacesDataDic = new Dictionary<System.String, RaceData>();
+
+    public List<CharacterPhoto> characterAndPhoto;
 
     float workerCardRatio = 10f / 100;
     float deliveryCardRatio = 10f / 100;
