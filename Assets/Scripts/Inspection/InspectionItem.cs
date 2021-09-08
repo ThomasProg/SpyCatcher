@@ -17,6 +17,7 @@ public struct InspectionItemInfo
 public class InspectionItem : MonoBehaviour
 {
     Text text = null;
+    Image image = null;
     string inspectionManagerName = "InspectionManager";
     protected InspectionManager inspectionManager = null;
 
@@ -24,6 +25,24 @@ public class InspectionItem : MonoBehaviour
     public InspectionItemInfo info;
 
     bool isSelected = false;
+
+    public string Text
+    {
+        set
+        {
+            if (text != null)
+                text.text = value;
+        }
+    }
+
+    public Sprite Image
+    {
+        set
+        {
+            if (image != null)
+                image.sprite = value;
+        }
+    }
 
     public bool IsSelected
     {
@@ -72,9 +91,10 @@ public class InspectionItem : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         text = GetComponent<Text>();
+        image = GetComponent<Image>();
         inspectionManager = GameObject.Find(inspectionManagerName).GetComponent<InspectionManager>();
         EventTrigger eventTrigger = GetComponent<EventTrigger>();
 

@@ -17,6 +17,13 @@ public struct RaceData
     public int minHeight; // inclusive
     public int maxHeight; // exclusive
     public List<string> possibleSexes;
+    public List<string> cities;
+    public List<Sprite> photos;
+    public Sprite seal;
+
+    public Animation enterAnim;
+    public Animation allowedAnim;
+    public Animation deniedAnim;
 
     public string GetRandomName()
     {
@@ -35,17 +42,29 @@ public class ImmigrantRandomizer : MonoBehaviour
     Date passportMaxExpirationDate;
 
     [SerializeField]
+    GameObject passportPrefab;
+
+    [SerializeField]
+    GameObject docSpawnCanvas;
+    [SerializeField]
+    Vector3 docSpawnPos;
+
+    [SerializeField]
     //Dictionary<Race, RaceData> allRacesData = new Dictionary<Race, RaceData>();
     List<RaceData> allRacesData = new List<RaceData>();
 
     Dictionary<System.String, RaceData> allRacesDataDic = new Dictionary<System.String, RaceData>();
 
-    private void Init()
+    float workerCardRatio = 10f / 100;
+    float deliveryCardRatio = 10f / 100;
+    float diplomaticLetterRatio = 10f / 100;
+    float weaponLicenseRatio = 10f / 100;
+
+    private void Start()
     {
         foreach (RaceData data in allRacesData)
         {
             allRacesDataDic.Add(data.race, data);
-            Debug.Log(data.race.ToString());
         }
     }
 
@@ -100,7 +119,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         Date randDate;
         randDate.year = Random.Range(min.year, max.year + 1);
         
-        int minMonth = 0;
+        int minMonth = 1;
         if (randDate.year == min.year)
             minMonth = min.month;
         int maxMonth = 12;
@@ -127,6 +146,21 @@ public class ImmigrantRandomizer : MonoBehaviour
         return raceData.planetsIcon;
     }
 
+    string GetRandomPlace(RaceData raceData)
+    {
+        return raceData.cities[Random.Range(0, raceData.cities.Count)];
+    }
+
+    Sprite GetRandomPhoto(RaceData raceData)
+    {
+        return raceData.photos[Random.Range(0, raceData.photos.Count)];
+    }
+
+    Sprite GetValidSeal(RaceData raceData)
+    {
+        return raceData.seal;
+    }
+
     Passport GetValidRandomPassport(System.String race, RaceData raceData)
     {
         Passport passport = new Passport();
@@ -137,8 +171,17 @@ public class ImmigrantRandomizer : MonoBehaviour
         passport.height = GetRandomValidHeight(raceData);
         passport.sex = GetRandomSex(raceData);
         passport.birthdate = GetRandomDate(raceData.minBirthday, raceData.maxBirthday);
+        passport.birthPlace = GetRandomPlace(raceData);
         passport.expirationDate = GetRandomDate(currentDate, passportMaxExpirationDate);
+
         passport.planetIcon = GetValidPlanetIcon(raceData);
+        passport.planetSeal = GetValidSeal(raceData);
+        passport.photo = GetRandomPhoto(raceData);
+
+        passport.linkerPrefab = passportPrefab;
+        docSpawnCanvas.transform.position = docSpawnPos;
+        passport.parent = docSpawnCanvas.transform;
+
         return passport;
     }
 
@@ -155,10 +198,10 @@ public class ImmigrantRandomizer : MonoBehaviour
 
     public void SetRandomData(Immigrant immigrant)
     {
-        Init();
+        //Init();
         System.String race = GetRandomRace();
         RaceData raceData = GetRaceData(race);
-        GetValidRandomPassport(race, raceData);
+        immigrant.documents.Add(GetValidRandomPassport(race, raceData));
 
         
     }

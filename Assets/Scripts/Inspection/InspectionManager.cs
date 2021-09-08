@@ -16,6 +16,10 @@ public enum DataType
     Birthplace,
     Weight,
     Height,
+    ExpirationDate,
+    Agency,
+    Cargo,
+    Photo,
 }
 
 public class InspectionManager : MonoBehaviour
@@ -33,8 +37,9 @@ public class InspectionManager : MonoBehaviour
 
     [SerializeField]
     GameObject characterPrefab;
+
     [SerializeField]
-    Vector3 immigrantDefaultLocation = Vector3.zero;
+    Transform parentTransform;
 
     [SerializeField]
     ImmigrantRandomizer immigrantRandomizer;
@@ -78,7 +83,7 @@ public class InspectionManager : MonoBehaviour
             wanted = item1;
             other = item2;
         }
-        else if (item1.info.type == toGet)
+        else if (item2.info.type == toGet)
         {
             wanted = item2;
             other = item1;
@@ -90,21 +95,22 @@ public class InspectionManager : MonoBehaviour
         }
     }
 
-    String CheckIncoherenceWithoutRules(InspectionItem item1, InspectionItem item2)
+    string CheckIncoherenceWithoutRules(InspectionItem item1, InspectionItem item2)
     {
         if (item1.info.type == item2.info.type)
         {
             if (item1.info.value != item2.info.value)
             {
-                string errorMessage;
-                if (incoherenceMessages.TryGetValue(item1.info.type, out errorMessage))
-                {
-                    return errorMessage;
-                }
-                else
-                {
-                    Debug.LogError("Message not implemented");
-                }
+                //string errorMessage;
+                //if (incoherenceMessages.TryGetValue(item1.info.type, out errorMessage))
+                //{
+                //    return errorMessage;
+                //}
+                //else
+                //{
+                //    Debug.LogError("Message not implemented");
+                //}
+                return "Les données ne correspondent pas.";
             }
         }
         else
@@ -117,11 +123,24 @@ public class InspectionManager : MonoBehaviour
                 switch (otherItem.info.type)
                 {
                     case DataType.Height:
-                        immigrantRandomizer.IsValidHeight(raceItem.info.value, int.Parse(otherItem.info.value));
-                        break;
+                        if (immigrantRandomizer.IsValidHeight(raceItem.info.value, DataConversions.FromString(otherItem.info.value)))
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            return "La taille est invalide.";
+                        }
 
                     case DataType.Weight:
-                        break;
+                        if (immigrantRandomizer.IsValidWeight(raceItem.info.value, DataConversions.FromString(otherItem.info.value)))
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            return "Le poids est invalide.";
+                        }
                 }
             }
         }
@@ -180,8 +199,7 @@ public class InspectionManager : MonoBehaviour
 
     public void GenerateNewImmigrant()
     {
-        currentImmigrant = Instantiate(characterPrefab, immigrantDefaultLocation, Quaternion.identity).GetComponent<Immigrant>();
-
+        currentImmigrant = Instantiate(characterPrefab, parentTransform).GetComponent<Immigrant>();
         immigrantRandomizer.SetRandomData(currentImmigrant);
     }
 

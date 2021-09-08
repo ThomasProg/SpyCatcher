@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Document
 { 
+    public virtual void InstantiateDocument()
+    {
 
+    }
 };
 
 public class Passport : Document
@@ -17,7 +20,20 @@ public class Passport : Document
     public string sex;
     public Date birthdate;
     public Date expirationDate;
+    public string birthPlace; // city
+
     public Sprite planetIcon;
+    public Sprite photo;
+    public Sprite planetSeal;
+
+    public GameObject linkerPrefab;
+    public Transform parent;
+
+    public override void InstantiateDocument()
+    {
+        PassportLinker linker = GameObject.Instantiate(linkerPrefab, parent).GetComponent<PassportLinker>();
+        linker.SetData(this);
+    }
 };
 
 public class WorkerCard : Document
@@ -63,8 +79,31 @@ public class WeaponLicense : Document
 public class Immigrant : MonoBehaviour
 {
     public List<Document> documents = new List<Document>();
+    float creationTime;
+    bool haveDocumentsSpawned = false;
 
 
+    public void InstantiateDocuments()
+    {
+        foreach (Document doc in documents)
+        {
+            doc.InstantiateDocument();
+        }
+    }
+
+    private void Start()
+    {
+        creationTime = 0f;
+    }
+
+    private void Update()
+    {
+        if (Time.time > creationTime + 1f && !haveDocumentsSpawned)
+        {
+            haveDocumentsSpawned = true;
+            InstantiateDocuments();
+        }
+    }
 }
 
 public enum ImmigrantType

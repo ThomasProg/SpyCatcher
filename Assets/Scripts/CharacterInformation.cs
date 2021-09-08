@@ -81,8 +81,19 @@ public class DataConversions
         return p.ToString();
     }
 
+    public static string ToString(Date date)
+    {
+        return date.day + " / " + date.month + " / " + date.year;
+    }
+
+
     public static T FromString<T>(string str)
     {
-        return (T) System.Enum.Parse(typeof(T), str, true); ;
+        return (T) System.Enum.Parse(typeof(T), str, true); 
+    }
+
+    public static int FromString(string str)
+    {
+        return int.Parse(str);
     }
 };
