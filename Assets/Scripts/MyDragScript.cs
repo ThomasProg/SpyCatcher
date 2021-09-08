@@ -77,8 +77,6 @@ public class MyDragScript : MonoBehaviour
                 && point.y >= bottom
                 && point.y <= top)
                 return true;
-
-            Debug.Log("area : " + im.anchoredPosition.x);
         }
         return false;
     }
@@ -90,9 +88,6 @@ public class MyDragScript : MonoBehaviour
         Vector3 p3 = imagePos + new Vector3(image.rectTransform.rect.width / 2f, - image.rectTransform.rect.height / 2f);
         Vector3 p4 = imagePos + new Vector3(image.rectTransform.rect.width / 2f, image.rectTransform.rect.height / 2f);
 
-        //Debug.Log(image.rectTransform.rect.width);
-        //Debug.Log(image.rectTransform.rect.height);
-
         return IsPointInDraggableArea(p1) && IsPointInDraggableArea(p2) && IsPointInDraggableArea(p3) && IsPointInDraggableArea(p4);
     }
 
@@ -101,7 +96,6 @@ public class MyDragScript : MonoBehaviour
         isDragged = false;
         if (!IsInDraggableArea(image.rectTransform.anchoredPosition))
         {
-            Debug.Log("passport : " + image.rectTransform.anchoredPosition);
             transform.position = lastPosition;
         }
 

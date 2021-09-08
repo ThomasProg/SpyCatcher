@@ -20,15 +20,15 @@ public enum Planet
     K52
 };
 
-[System.Serializable]
-public enum Race
-{ 
-    Human,
-    Antropomorph,
-    Slime,
-    Insect,
-    Invisible
-}
+//[System.Serializable]
+//public enum Race
+//{ 
+//    Human,
+//    Antropomorph,
+//    Slime,
+//    Insect,
+//    Invisible
+//}
 
 [System.Serializable]
 public enum City
@@ -68,3 +68,21 @@ public enum City
 
     K50
 }
+
+public class DataConversions
+{
+    public static string ToString<T>(T p)
+    {
+        return p.ToString();
+    }
+
+    public static string ToString(Planet p)
+    {
+        return p.ToString();
+    }
+
+    public static T FromString<T>(string str)
+    {
+        return (T) System.Enum.Parse(typeof(T), str, true); ;
+    }
+};
