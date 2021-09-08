@@ -32,6 +32,7 @@ public class MyDragScript : MonoBehaviour
 
     static DragAndDropManager dragAndDropManager = new DragAndDropManager();
 
+    // Areas must have their anchor at their center
     public List<RectTransform> dragArea = new List<RectTransform>();
 
     // Start is called before the first frame update
@@ -66,29 +67,41 @@ public class MyDragScript : MonoBehaviour
     {
         foreach (RectTransform im in dragArea)
         {
-            if (point.x < im.transform.position.x + im.rect.width / 2
-                && point.y < im.transform.position.y + im.rect.height / 2 
-                && point.x > im.transform.position.x - im.rect.width / 2
-                && point.y > im.transform.position.y - im.rect.height / 2)
+            float left = im.anchoredPosition.x - im.rect.width / 2;
+            float right = im.anchoredPosition.x + im.rect.width / 2;
+            float top = im.anchoredPosition.y + im.rect.height / 2;
+            float bottom = im.anchoredPosition.y - im.rect.height / 2;
+
+            if (point.x >= left 
+                && point.x <= right
+                && point.y >= bottom
+                && point.y <= top)
                 return true;
+
+            Debug.Log("area : " + im.anchoredPosition.x);
         }
         return false;
     }
 
     bool IsInDraggableArea(Vector3 imagePos)
     {
-        Vector3 p1 = imagePos + new Vector3(- image.rectTransform.rect.width / 2, - image.rectTransform.rect.height / 2);
-        Vector3 p2 = imagePos + new Vector3(- image.rectTransform.rect.width / 2, image.rectTransform.rect.height / 2);
-        Vector3 p3 = imagePos + new Vector3(image.rectTransform.rect.width / 2, - image.rectTransform.rect.height / 2);
-        Vector3 p4 = imagePos + new Vector3(image.rectTransform.rect.width / 2, image.rectTransform.rect.height / 2);
+        Vector3 p1 = imagePos + new Vector3(- image.rectTransform.rect.width / 2f, - image.rectTransform.rect.height / 2f);
+        Vector3 p2 = imagePos + new Vector3(- image.rectTransform.rect.width / 2f, image.rectTransform.rect.height / 2f);
+        Vector3 p3 = imagePos + new Vector3(image.rectTransform.rect.width / 2f, - image.rectTransform.rect.height / 2f);
+        Vector3 p4 = imagePos + new Vector3(image.rectTransform.rect.width / 2f, image.rectTransform.rect.height / 2f);
+
+        //Debug.Log(image.rectTransform.rect.width);
+        //Debug.Log(image.rectTransform.rect.height);
+
         return IsPointInDraggableArea(p1) && IsPointInDraggableArea(p2) && IsPointInDraggableArea(p3) && IsPointInDraggableArea(p4);
     }
 
     public void OnMouseUp()
     {
         isDragged = false;
-        if (!IsInDraggableArea(image.transform.position))
+        if (!IsInDraggableArea(image.rectTransform.anchoredPosition))
         {
+            Debug.Log("passport : " + image.rectTransform.anchoredPosition);
             transform.position = lastPosition;
         }
 
