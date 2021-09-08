@@ -61,11 +61,11 @@ MonoBehaviour:
     minBirthday:
       day: 1
       month: 1
-      year: 1900
+      year: 2340
     maxBirthday:
       day: 31
       month: 12
-      year: 1990
+      year: 2432
     firstNames:
     - John
     - Nicolas
@@ -117,7 +117,11 @@ MonoBehaviour:
     - Kaki
     - Noki
     - Zoko
-    lastNames: []
+    lastNames:
+    - Kan
+    - Nan
+    - Lan
+    - Van
     defaultPlanet: 3
     planetsIcon: {fileID: 0}
     minWeight: 10
@@ -150,10 +154,10 @@ MonoBehaviour:
     lastNames: []
     defaultPlanet: 2
     planetsIcon: {fileID: 0}
-    minWeight: 10
-    maxWeight: 20
-    minHeight: 30
-    maxHeight: 60
+    minWeight: 100
+    maxWeight: 200
+    minHeight: 180
+    maxHeight: 230
     possibleSexes:
     - NB
   - race: Mek'ha
@@ -179,9 +183,40 @@ MonoBehaviour:
     lastNames: []
     defaultPlanet: 1
     planetsIcon: {fileID: 0}
-    minWeight: 10
-    maxWeight: 20
-    minHeight: 30
-    maxHeight: 60
+    minWeight: 80
+    maxWeight: 150
+    minHeight: 180
+    maxHeight: 200
     possibleSexes:
     - NB
+  - race: Antropomorphe
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2420
+    maxBirthday:
+      day: 31
+      month: 12
+      year: 2452
+    firstNames:
+    - Plop
+    - Pellep
+    - Divvy
+    - Gluey
+    - Bip
+    - Bounce
+    - Jigger
+    - Octet
+    - Rupture
+    - Niko
+    lastNames: []
+    defaultPlanet: 0
+    planetsIcon: {fileID: 0}
+    minWeight: 160
+    maxWeight: 240
+    minHeight: 60
+    maxHeight: 180
+    possibleSexes:
+    - NB
+    - F
+    - M
