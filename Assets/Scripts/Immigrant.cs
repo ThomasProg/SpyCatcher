@@ -11,7 +11,7 @@ public class Passport : Document
 {
     public string name;
     public Planet planet;
-    public Race race;
+    public string race;
     public int weight;
     public int height;
     public string sex;

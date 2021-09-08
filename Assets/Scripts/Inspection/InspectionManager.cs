@@ -71,6 +71,25 @@ public class InspectionManager : MonoBehaviour
         return rule.CheckIncoherence(otherItem);
     }
 
+    void GetDataTypeItem(DataType toGet, InspectionItem item1, InspectionItem item2, out InspectionItem wanted, out InspectionItem other)
+    {
+        if (item1.info.type == toGet)
+        {
+            wanted = item1;
+            other = item2;
+        }
+        else if (item1.info.type == toGet)
+        {
+            wanted = item2;
+            other = item1;
+        }
+        else
+        {
+            wanted = null;
+            other = null;
+        }
+    }
+
     String CheckIncoherenceWithoutRules(InspectionItem item1, InspectionItem item2)
     {
         if (item1.info.type == item2.info.type)
@@ -88,6 +107,25 @@ public class InspectionManager : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            InspectionItem raceItem;
+            InspectionItem otherItem;
+            GetDataTypeItem(DataType.Race, item1, item2, out raceItem, out otherItem);
+            if (raceItem != null)
+            {
+                switch (otherItem.info.type)
+                {
+                    case DataType.Height:
+                        immigrantRandomizer.IsValidHeight(raceItem.info.value, int.Parse(otherItem.info.value));
+                        break;
+
+                    case DataType.Weight:
+                        break;
+                }
+            }
+        }
+
         return null;
     }
 
@@ -113,24 +151,28 @@ public class InspectionManager : MonoBehaviour
         SetMessage(message);
     }
 
-    //public void 
-
-
     public void InspectItem(InspectionItem inspectedItem)
     {
         if (inspectedItems[0] == inspectedItem)
         {
-            
+            inspectedItems[0].IsSelected = false;
+            SetMessage("");
             inspectedItems[0] = null;
             return;
         }
         if (inspectedItems[1] == inspectedItem)
         {
+            inspectedItems[1].IsSelected = false;
+            SetMessage("");
             inspectedItems[1] = null;
             return;
         }
 
+        if (inspectedItems[nextItemIndex] != null)
+            inspectedItems[nextItemIndex].IsSelected = false;
+
         inspectedItems[nextItemIndex] = inspectedItem;
+        inspectedItems[nextItemIndex].IsSelected = true;
         nextItemIndex = (nextItemIndex + 1) % 2;
 
         CheckIncoherence();

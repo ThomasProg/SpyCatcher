@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct RaceData
 {
-    public Race race;
+    public System.String race;
     public Date minBirthday;
     public Date maxBirthday;
     public List<string> firstNames;
@@ -38,7 +38,7 @@ public class ImmigrantRandomizer : MonoBehaviour
     //Dictionary<Race, RaceData> allRacesData = new Dictionary<Race, RaceData>();
     List<RaceData> allRacesData = new List<RaceData>();
 
-    Dictionary<Race, RaceData> allRacesDataDic = new Dictionary<Race, RaceData>();
+    Dictionary<System.String, RaceData> allRacesDataDic = new Dictionary<System.String, RaceData>();
 
     private void Init()
     {
@@ -49,12 +49,26 @@ public class ImmigrantRandomizer : MonoBehaviour
         }
     }
 
-    RaceData GetRaceData(Race race)
+    RaceData GetRaceData(System.String race)
     {
         RaceData raceData;
         bool isFound = allRacesDataDic.TryGetValue(race, out raceData);
         Debug.Assert(isFound);
         return raceData;
+    }
+
+    public bool IsValidWeight(System.String race, float weight)
+    {
+        RaceData raceData = GetRaceData(race);
+
+        return raceData.minWeight < weight && weight < raceData.maxWeight;
+    }
+
+    public bool IsValidHeight(System.String race, float height)
+    {
+        RaceData raceData = GetRaceData(race);
+
+        return raceData.minHeight < height && height < raceData.maxHeight;
     }
 
     string GetRandomName(RaceData raceData)
@@ -113,7 +127,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         return raceData.planetsIcon;
     }
 
-    Passport GetValidRandomPassport(Race race, RaceData raceData)
+    Passport GetValidRandomPassport(System.String race, RaceData raceData)
     {
         Passport passport = new Passport();
         passport.name = GetRandomName(raceData);
@@ -134,16 +148,15 @@ public class ImmigrantRandomizer : MonoBehaviour
         return (T) values.GetValue(Random.Range(0, values.Length));
     }
 
-    Race GetRandomRace()
+    System.String GetRandomRace()
     {
-        return GetRandomEnum<Race>();
+        return allRacesData[Random.Range(0, allRacesData.Count)].race;
     }
 
     public void SetRandomData(Immigrant immigrant)
     {
         Init();
-        Race race = GetRandomRace();
-        race = Race.Human;
+        System.String race = GetRandomRace();
         RaceData raceData = GetRaceData(race);
         GetValidRandomPassport(race, raceData);
 

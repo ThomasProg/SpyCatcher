@@ -23,6 +23,36 @@ public class InspectionItem : MonoBehaviour
     [SerializeField]
     public InspectionItemInfo info;
 
+    bool isSelected = false;
+
+    public bool IsSelected
+    {
+        get
+        {
+            return isSelected;
+        }
+        set
+        { 
+            if (value)
+            {
+                isSelected = true;
+                if (text != null)
+                {
+                    text.color = Color.yellow;
+                }
+            }
+            else
+            {
+                isSelected = false;
+                if (text != null)
+                {
+                    text.color = Color.black;
+                }
+            }
+        }
+    }
+
+
     void AddCallback(EventTrigger eventTrigger, EventTriggerType triggerType, UnityAction<BaseEventData> action)
     {
         List<EventTrigger.Entry> triggers = eventTrigger.triggers;
@@ -64,7 +94,7 @@ public class InspectionItem : MonoBehaviour
 
     public void OnPointerEnter(BaseEventData data)
     {
-        if (text != null)
+        if (text != null && !IsSelected)
         {
             text.color = Color.red;
         }
@@ -72,7 +102,7 @@ public class InspectionItem : MonoBehaviour
 
     public void OnPointerExit(BaseEventData data)
     {
-        if (text != null)
+        if (text != null && !IsSelected)
         {
             text.color = Color.black;
         }
