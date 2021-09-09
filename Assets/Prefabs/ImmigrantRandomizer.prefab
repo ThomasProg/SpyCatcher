@@ -73,7 +73,15 @@ MonoBehaviour:
   errorPercent: 100
   docSpawnCanvas: {fileID: 0}
   docSpawnPos: {x: 0, y: -100, z: 0}
-  cargoList: []
+  cargoList:
+  - Drogues
+  - Armes
+  - Electroniques
+  - Nourritures
+  - Fourrure
+  - Minerais
+  - Organes
+  - Animaux
   allRacesData:
   - invalidDataParams:
       minWeight: 0
@@ -476,6 +484,141 @@ MonoBehaviour:
     enterAnim: {fileID: 7400000, guid: 76a7bb51af1bbff43af5c84c1d0124e8, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
+  - invalidDataParams:
+      minWeight: 0
+      maxWeight: 0
+      minHeight: 0
+      maxHeight: 0
+      minBirthday:
+        day: 0
+        month: 0
+        year: 0
+      maxBirthday:
+        day: 0
+        month: 0
+        year: 0
+      minExpirationDate:
+        day: 0
+        month: 0
+        year: 0
+      minDocCreationDate:
+        day: 0
+        month: 0
+        year: 0
+      maxDocCreationDate:
+        day: 0
+        month: 0
+        year: 0
+    race: Invisible
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2000
+    maxBirthday:
+      day: 31
+      month: 12
+      year: 2100
+    firstNames:
+    - Wafu
+    - Sha
+    - Nylonie
+    - Yishun
+    - Hansha
+    - Raidi
+    - Thomas
+    - Sith
+    lastNames:
+    - Kul
+    defaultPlanet: 4
+    planetsIcon: {fileID: 21300000, guid: d2197d266441eae4d9f8a1f64241f538, type: 3}
+    minWeight: 160
+    maxWeight: 200
+    minHeight: 60
+    maxHeight: 100
+    possibleSexes:
+    - NB
+    cities:
+    - K-50
+    photos:
+    - {fileID: 21300000, guid: cbfff9a0866cd9945b47bbe24370a2f7, type: 3}
+    agencies:
+    - name: 
+      seal: {fileID: 0}
+      sign: 
+    seal: {fileID: 0}
+    enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
+    allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
+    deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
+  - invalidDataParams:
+      minWeight: 0
+      maxWeight: 0
+      minHeight: 0
+      maxHeight: 0
+      minBirthday:
+        day: 0
+        month: 0
+        year: 0
+      maxBirthday:
+        day: 0
+        month: 0
+        year: 0
+      minExpirationDate:
+        day: 0
+        month: 0
+        year: 0
+      minDocCreationDate:
+        day: 0
+        month: 0
+        year: 0
+      maxDocCreationDate:
+        day: 0
+        month: 0
+        year: 0
+    race: Slime
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2000
+    maxBirthday:
+      day: 31
+      month: 12
+      year: 2100
+    firstNames:
+    - Blop
+    - Blurp
+    - Blourp
+    - Wurp
+    - Warp
+    - Wapiti
+    - Bibourp
+    - Lourp
+    lastNames: []
+    defaultPlanet: 2
+    planetsIcon: {fileID: 21300000, guid: 47873e752d558d74aadca9bec0ecb980, type: 3}
+    minWeight: 160
+    maxWeight: 200
+    minHeight: 60
+    maxHeight: 100
+    possibleSexes:
+    - NB
+    cities:
+    - Noboria
+    - Raugawa
+    - Chahiness
+    - Ziawi
+    - Ulluela
+    photos:
+    - {fileID: 21300000, guid: 06f448036c735ab42801599b014011e9, type: 3}
+    - {fileID: 21300000, guid: b7cec8a0a8aa27043aa370fa4a076c4a, type: 3}
+    - {fileID: 21300000, guid: 6e0c65383fb564e4991e2d244cdd5bbd, type: 3}
+    agencies:
+    - name: 
+      seal: {fileID: 0}
+      sign: 
+    seal: {fileID: 0}
+    enterAnim: {fileID: 7400000, guid: 76a7bb51af1bbff43af5c84c1d0124e8, type: 2}
+    allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
+    deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
   characterAndPhoto:
   - photo: {fileID: 21300000, guid: d007e70ae9f26d24cbb1157548633d6e, type: 3}
     real: {fileID: 21300000, guid: 22548423e43c95c4bbed4cb605cf4a8d, type: 3}
@@ -547,12 +690,28 @@ MonoBehaviour:
     deniedSound: {fileID: 8300000, guid: 261b045b27b28d24d94b16b882b6431c, type: 3}
   - photo: {fileID: 21300000, guid: d9309d9510ef7ad4b8a00dd55484a7f6, type: 3}
     real: {fileID: 21300000, guid: 604afc7a910c0af4bab6c8384d8c09b6, type: 3}
-    enterSound: {fileID: 8300000, guid: e0fdadfd0c1694343b6de6e72467bf94, type: 3}
-    deniedSound: {fileID: 8300000, guid: 261b045b27b28d24d94b16b882b6431c, type: 3}
+    enterSound: {fileID: 8300000, guid: 045987d5420d7794e8cac9fbd1afac25, type: 3}
+    deniedSound: {fileID: 8300000, guid: 35f2b621bddda794ba3b97ad36600a53, type: 3}
   - photo: {fileID: 21300000, guid: abd9f4a77e5a9d244af9efb3560a1494, type: 3}
     real: {fileID: 21300000, guid: e31dea2016e61b04f91cf766ceafdb88, type: 3}
+    enterSound: {fileID: 8300000, guid: 045987d5420d7794e8cac9fbd1afac25, type: 3}
+    deniedSound: {fileID: 8300000, guid: 35f2b621bddda794ba3b97ad36600a53, type: 3}
+  - photo: {fileID: 21300000, guid: cbfff9a0866cd9945b47bbe24370a2f7, type: 3}
+    real: {fileID: 21300000, guid: 8e04db416e0e05d46a879de65689d059, type: 3}
     enterSound: {fileID: 8300000, guid: e0fdadfd0c1694343b6de6e72467bf94, type: 3}
     deniedSound: {fileID: 8300000, guid: 261b045b27b28d24d94b16b882b6431c, type: 3}
+  - photo: {fileID: 21300000, guid: 06f448036c735ab42801599b014011e9, type: 3}
+    real: {fileID: 21300000, guid: 4d78ec1353c8751478ccec4fd82f2e5d, type: 3}
+    enterSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
+    deniedSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
+  - photo: {fileID: 21300000, guid: b7cec8a0a8aa27043aa370fa4a076c4a, type: 3}
+    real: {fileID: 21300000, guid: b87b8cc553aadd944be15cc691e0a003, type: 3}
+    enterSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
+    deniedSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
+  - photo: {fileID: 21300000, guid: 6e0c65383fb564e4991e2d244cdd5bbd, type: 3}
+    real: {fileID: 21300000, guid: 3e8fa25b39ef0fe4383ffed3b74653a1, type: 3}
+    enterSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
+    deniedSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
   planetsData: []
   workerCardPercent: 100
   deliveryCardPercent: 20
