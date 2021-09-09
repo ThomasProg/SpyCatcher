@@ -6,6 +6,9 @@ public class Document
 {
     public GameObject linkerPrefab;
     public Transform parent;
+
+    public GameObject linkerInstance;
+
     public virtual void InstantiateDocument()
     {
 
@@ -30,7 +33,8 @@ public class Passport : Document
 
     public override void InstantiateDocument()
     {
-        PassportLinker linker = GameObject.Instantiate(linkerPrefab, parent).GetComponent<PassportLinker>();
+        linkerInstance = GameObject.Instantiate(linkerPrefab, parent);
+        PassportLinker linker = linkerInstance.GetComponent<PassportLinker>();
         linker.SetData(this);
     }
 };
@@ -48,7 +52,8 @@ public class WorkerCard : Document
 
     public override void InstantiateDocument()
     {
-        WorkerCardLinker linker = GameObject.Instantiate(linkerPrefab, parent).GetComponent<WorkerCardLinker>();
+        linkerInstance = GameObject.Instantiate(linkerPrefab, parent);
+        WorkerCardLinker linker = linkerInstance.GetComponent<WorkerCardLinker>();
         linker.SetData(this);
     }
 };
@@ -64,7 +69,8 @@ public class DeliveryCard : Document
 
     public override void InstantiateDocument()
     {
-        DeliveryCardLinker linker = GameObject.Instantiate(linkerPrefab, parent).GetComponent<DeliveryCardLinker>();
+        linkerInstance = GameObject.Instantiate(linkerPrefab, parent);
+        DeliveryCardLinker linker = linkerInstance.GetComponent<DeliveryCardLinker>();
         linker.SetData(this);
     }
 };
@@ -78,7 +84,8 @@ public class DiplomaticLetter : Document
 
     public override void InstantiateDocument()
     {
-        DiplomaticLetterLinker linker = GameObject.Instantiate(linkerPrefab, parent).GetComponent<DiplomaticLetterLinker>();
+        linkerInstance = GameObject.Instantiate(linkerPrefab, parent);
+        DiplomaticLetterLinker linker = linkerInstance.GetComponent<DiplomaticLetterLinker>();
         linker.SetData(this);
     }
 };
@@ -95,7 +102,8 @@ public class WeaponLicense : Document
 
     public override void InstantiateDocument()
     {
-        WeaponLicenseLinker linker = GameObject.Instantiate(linkerPrefab, parent).GetComponent<WeaponLicenseLinker>();
+        linkerInstance = GameObject.Instantiate(linkerPrefab, parent);
+        WeaponLicenseLinker linker = linkerInstance.GetComponent<WeaponLicenseLinker>();
         linker.SetData(this);
     }
 };
@@ -120,9 +128,17 @@ public class Immigrant : MonoBehaviour
         }
     }
 
+    public void RemoveDocuments()
+    {
+        foreach (Document doc in documents)
+        {
+            Destroy(doc.linkerInstance);
+        }
+    }
+
     private void Start()
     {
-        creationTime = 0f;
+        creationTime = Time.time;
 
         anim = GetComponent<Animation>();
         audioSource = GetComponent<AudioSource>();

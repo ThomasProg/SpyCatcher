@@ -223,6 +223,8 @@ public class InspectionManager : MonoBehaviour
 
     public void GenerateNewImmigrant()
     {
+        inspectedItems[0] = null;
+        inspectedItems[1] = null;
         currentImmigrant = Instantiate(characterPrefab, parentTransform).GetComponent<Immigrant>();
         immigrantRandomizer.SetRandomData(currentImmigrant);
     }
@@ -242,10 +244,7 @@ public class InspectionManager : MonoBehaviour
         
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
         currentImmigrant.anim.clip = raceData.allowedAnim;
-        currentImmigrant.anim.Play();
-
         currentImmigrant.audioSource.clip = raceData.allowedAudio;
-        currentImmigrant.audioSource.Play();
 
         OnImmigrantLeave();
     }
@@ -257,16 +256,20 @@ public class InspectionManager : MonoBehaviour
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
         currentImmigrant.anim.clip = raceData.deniedAnim;
-        currentImmigrant.anim.Play();
-
         currentImmigrant.audioSource.clip = raceData.deniedAudio;
-        currentImmigrant.audioSource.Play();
 
         OnImmigrantLeave();
     }
 
     public void OnImmigrantLeave()
     {
-        Destroy(currentImmigrant);
+        currentImmigrant.anim.Play();
+        currentImmigrant.audioSource.Play();
+
+        currentImmigrant.RemoveDocuments();
+
+        Destroy(currentImmigrant.gameObject);
+
+        GenerateNewImmigrant();
     }
 }
