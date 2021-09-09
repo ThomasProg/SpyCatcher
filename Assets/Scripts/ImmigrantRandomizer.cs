@@ -564,11 +564,11 @@ public class ImmigrantRandomizer : MonoBehaviour
 
         Passport passport = GetValidRandomPassport(raceData);
 
-        //System.Predicate<CharacterPhoto> predicate = (CharacterPhoto p) => p.photo == passport.photo;
-        //Sprite real = characterAndPhoto.Find(predicate).real;
-        //if (real == null)
-        //    Debug.LogError("invalid photos or sprites set");
-        //immigrant.SetSprite(real);
+        System.Predicate<CharacterPhoto> predicate = (CharacterPhoto p) => p.photo == passport.photo;
+        Sprite real = characterAndPhoto.Find(predicate).real;
+        if (real == null)
+            Debug.LogError("invalid photos or sprites set");
+        immigrant.SetSprite(real);
 
         AgencyData agencyData = GetRandomAgency(raceData);
 

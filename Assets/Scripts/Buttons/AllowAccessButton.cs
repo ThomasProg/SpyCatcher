@@ -20,6 +20,12 @@ public class AllowAccessButton : MonoBehaviour
 
 	void AddCallback(EventTrigger eventTrigger, EventTriggerType triggerType, UnityAction<BaseEventData> action)
 	{
+		if (eventTrigger == null)
+        {
+			Debug.LogWarning("Buttons should have an EventTrigger.");
+			return;
+        }
+
 		List<EventTrigger.Entry> triggers = eventTrigger.triggers;
 		EventTrigger.Entry clickEventHandler = triggers.Find(
 			t => t.eventID == triggerType
@@ -31,7 +37,6 @@ public class AllowAccessButton : MonoBehaviour
 			triggers.Add(clickEventHandler);
 			eventTrigger.triggers = triggers;
 		}
-
 		clickEventHandler.callback.AddListener(action);
 	}
 
