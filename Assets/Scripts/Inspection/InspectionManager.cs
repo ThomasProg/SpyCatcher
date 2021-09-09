@@ -98,6 +98,50 @@ public class InspectionManager : MonoBehaviour
         }
     }
 
+    string CheckIncoherenceWithRace(InspectionItem item1, InspectionItem item2)
+    {
+        InspectionItem raceItem;
+        InspectionItem otherItem;
+
+        GetDataTypeItem(DataType.Race, item1, item2, out raceItem, out otherItem);
+        if (raceItem != null)
+        {
+            switch (otherItem.info.type)
+            {
+                case DataType.Height:
+                    if (immigrantRandomizer.IsValidHeight(raceItem.info.value, DataConversions.FromString(otherItem.info.value)))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return "La taille est invalide.";
+                    }
+
+                case DataType.Weight:
+                    if (immigrantRandomizer.IsValidWeight(raceItem.info.value, DataConversions.FromString(otherItem.info.value)))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return "Le poids est invalide.";
+                    }
+
+                case DataType.Birthday:
+                    if (immigrantRandomizer.HasValidAge(raceItem.info.value, DataConversions.StringToDate(otherItem.info.value)))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return "L'âge est invalide.";
+                    }
+            }
+        }
+        return null;
+    }
+
     string CheckIncoherenceWithoutRules(InspectionItem item1, InspectionItem item2)
     {
         if (item1.info.type == item2.info.type && item1.info.type != DataType.ExpirationDate)
@@ -118,44 +162,11 @@ public class InspectionManager : MonoBehaviour
         }
         else
         {
-            InspectionItem raceItem;
-            InspectionItem otherItem;
-            GetDataTypeItem(DataType.Race, item1, item2, out raceItem, out otherItem);
-            if (raceItem != null)
-            {
-                switch (otherItem.info.type)
-                {
-                    case DataType.Height:
-                        if (immigrantRandomizer.IsValidHeight(raceItem.info.value, DataConversions.FromString(otherItem.info.value)))
-                        {
-                            return null;
-                        }
-                        else
-                        {
-                            return "La taille est invalide.";
-                        }
+            string s;
 
-                    case DataType.Weight:
-                        if (immigrantRandomizer.IsValidWeight(raceItem.info.value, DataConversions.FromString(otherItem.info.value)))
-                        {
-                            return null;
-                        }
-                        else
-                        {
-                            return "Le poids est invalide.";
-                        }
-
-                    case DataType.Birthday:
-                        if (immigrantRandomizer.HasValidAge(raceItem.info.value, DataConversions.StringToDate(otherItem.info.value)))
-                        {
-                            return null;
-                        }
-                        else
-                        {
-                            return "L'âge est invalide.";
-                        }
-                }
-            }
+            s = CheckIncoherenceWithRace(item1, item2);
+            if (s != null)
+                return s;
         }
 
         return null;
@@ -233,8 +244,8 @@ public class InspectionManager : MonoBehaviour
         currentImmigrant.anim.clip = raceData.allowedAnim;
         currentImmigrant.anim.Play();
 
-        currentImmigrant.audio.clip = raceData.allowedAudio;
-        currentImmigrant.audio.Play();
+        currentImmigrant.audioSource.clip = raceData.allowedAudio;
+        currentImmigrant.audioSource.Play();
 
         OnImmigrantLeave();
     }
@@ -248,8 +259,8 @@ public class InspectionManager : MonoBehaviour
         currentImmigrant.anim.clip = raceData.deniedAnim;
         currentImmigrant.anim.Play();
 
-        currentImmigrant.audio.clip = raceData.deniedAudio;
-        currentImmigrant.audio.Play();
+        currentImmigrant.audioSource.clip = raceData.deniedAudio;
+        currentImmigrant.audioSource.Play();
 
         OnImmigrantLeave();
     }

@@ -108,8 +108,9 @@ public class Immigrant : MonoBehaviour
     bool haveDocumentsSpawned = false;
 
     public Animation anim;
-    public AudioSource audio;
+    public AudioSource audioSource;
 
+    public bool isSpy = false;
 
     public void InstantiateDocuments()
     {
@@ -122,6 +123,10 @@ public class Immigrant : MonoBehaviour
     private void Start()
     {
         creationTime = 0f;
+
+        anim = GetComponent<Animation>();
+        audioSource = GetComponent<AudioSource>();
+
     }
 
     private void Update()
