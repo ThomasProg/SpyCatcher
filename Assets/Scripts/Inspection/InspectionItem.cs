@@ -96,10 +96,8 @@ public class InspectionItem : MonoBehaviour
         text = GetComponent<Text>();
         image = GetComponent<Image>();
         inspectionManager = GameObject.Find(inspectionManagerName).GetComponent<InspectionManager>();
-        EventTrigger eventTrigger = GetComponent<EventTrigger>();
 
-        UnityAction<BaseEventData> action = null;
-        action += OnMouseDown; 
+        EventTrigger eventTrigger = GetComponent<EventTrigger>();
         AddCallback(eventTrigger, EventTriggerType.PointerDown, OnMouseDown);
         AddCallback(eventTrigger, EventTriggerType.PointerUp, OnMouseUp);
         AddCallback(eventTrigger, EventTriggerType.PointerEnter, OnPointerEnter);

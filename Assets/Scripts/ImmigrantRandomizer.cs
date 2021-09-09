@@ -557,14 +557,18 @@ public class ImmigrantRandomizer : MonoBehaviour
 
     public void SetRandomData(Immigrant immigrant)
     {
-        //Init();
         string race = GetRandomRace();
         RaceData raceData = GetRaceData(race);
 
         immigrant.race = race;
 
         Passport passport = GetValidRandomPassport(raceData);
-        immigrant.documents.Add(passport);
+
+        System.Predicate<CharacterPhoto> predicate = (CharacterPhoto p) => p.photo == passport.photo;
+        Sprite real = characterAndPhoto.Find(predicate).real;
+        if (real == null)
+            Debug.LogError("invalid photos or sprites set");
+        immigrant.SetSprite(real);
 
         AgencyData agencyData = GetRandomAgency(raceData);
 
@@ -573,6 +577,8 @@ public class ImmigrantRandomizer : MonoBehaviour
             SetInvalidPassport(raceData, passport);
             immigrant.isSpy = true;
         }
+
+        immigrant.documents.Add(passport);
 
         if (Random.Range(0, 100) < workerCardPercent)
         {

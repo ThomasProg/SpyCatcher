@@ -47,6 +47,22 @@ public class InspectionManager : MonoBehaviour
     [SerializeField]
     ImmigrantRandomizer immigrantRandomizer;
 
+    [SerializeField]
+    Text scoreText;
+
+    [SerializeField]
+    int currentScore = 0;
+    public int CurrentScore
+    {
+        get { return currentScore; }
+        set
+        {
+            currentScore = value;
+            scoreText.text = currentScore.ToString();
+        }
+    }
+
+
     InspectionManager()
     {
         if (incoherenceMessages.Count != 0)
@@ -241,12 +257,19 @@ public class InspectionManager : MonoBehaviour
     {
         if (currentImmigrant == null)
             return;
-        
+
+        if (currentImmigrant.isSpy)
+        {
+            CurrentScore -= 1;
+        }
+        else
+            CurrentScore += 1;
+
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
         currentImmigrant.anim.clip = raceData.allowedAnim;
-        currentImmigrant.audioSource.clip = raceData.allowedAudio;
+        //currentImmigrant.audioSource.clip = raceData.allowedAudio;
 
-        OnImmigrantLeave();
+        StartCoroutine(OnImmigrantLeave());
     }
 
     public void DenyAccess()
@@ -254,21 +277,33 @@ public class InspectionManager : MonoBehaviour
         if (currentImmigrant == null)
             return;
 
+        if (currentImmigrant.isSpy)
+        {
+            CurrentScore += 1;
+        }
+        else
+        {
+            CurrentScore -= 1;
+        }
+
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
         currentImmigrant.anim.clip = raceData.deniedAnim;
-        currentImmigrant.audioSource.clip = raceData.deniedAudio;
+        //currentImmigrant.audioSource.clip = raceData.deniedAudio;
 
-        OnImmigrantLeave();
+        StartCoroutine(OnImmigrantLeave());
     }
 
-    public void OnImmigrantLeave()
+    IEnumerator OnImmigrantLeave()
     {
-        currentImmigrant.anim.Play();
-        currentImmigrant.audioSource.Play();
-
         currentImmigrant.RemoveDocuments();
+        currentImmigrant.anim.Play();
+        //currentImmigrant.audioSource.Play();
+
+        yield return new WaitForSeconds(1);
 
         Destroy(currentImmigrant.gameObject);
+
+        yield return new WaitForSeconds(1);
 
         GenerateNewImmigrant();
     }
