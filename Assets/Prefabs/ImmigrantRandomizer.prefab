@@ -24,7 +24,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7927948549290689148}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.69625, y: 0.69625, z: 0.69625}
   m_Children: []
@@ -56,12 +56,43 @@ MonoBehaviour:
     day: 14
     month: 9
     year: 2452
+  workerCardMaxExpirationDate:
+    day: 0
+    month: 0
+    year: 0
   passportPrefab: {fileID: 2335063765079734471, guid: a2b78c089bcdc734896638db64c0a5f9,
     type: 3}
+  workerCardPrefab: {fileID: 8353596192583796318, guid: c8904e957247d024aa02904c5807c229,
+    type: 3}
+  deliveryCardPrefab: {fileID: 5965093200323507653, guid: 580b1166e3d5fd940943b85b186f017d,
+    type: 3}
+  diplomaticLetterPrefab: {fileID: 5010449762040298211, guid: 73891d747dd0f7e42b0f3025bc376417,
+    type: 3}
+  weaponLicensePrefab: {fileID: 5411880434899400936, guid: f8126d206ab2fb743973451aba626fbd,
+    type: 3}
+  errorPercent: 100
   docSpawnCanvas: {fileID: 0}
-  docSpawnPos: {x: 0, y: 0, z: 0}
+  docSpawnPos: {x: 0, y: -100, z: 0}
+  cargoList: []
   allRacesData:
-  - race: Humain
+  - invalidDataParams:
+      minWeight: 0
+      maxWeight: 0
+      minHeight: 0
+      maxHeight: 0
+      minBirthday:
+        day: 0
+        month: 0
+        year: 0
+      maxBirthday:
+        day: 0
+        month: 0
+        year: 0
+      minExpirationDate:
+        day: 0
+        month: 0
+        year: 0
+    race: Humain
     minBirthday:
       day: 1
       month: 1
@@ -101,13 +132,56 @@ MonoBehaviour:
     possibleSexes:
     - M
     - F
-    cities: []
-    photos: []
+    cities:
+    - 'Ville 1 '
+    - 'Ville 2 '
+    - 'Ville 3 '
+    - 'Ville 4 '
+    - Ville 5
+    - 'Ville 6 '
+    - 'Ville 7 '
+    - 'Ville 8 '
+    - 'Ville 9 '
+    - Ville 10
+    - 'Ville 11 '
+    - 'Ville 12 '
+    - Nyonis
+    - Shrouxe
+    photos:
+    - {fileID: 21300000, guid: f9e256580b3df054b9f6a15b2340da82, type: 3}
+    - {fileID: 21300000, guid: b174b4f9f63b6e64e850c70719a1e7d5, type: 3}
+    - {fileID: 21300000, guid: 1060f99aa67db694785e192b98924751, type: 3}
+    - {fileID: 21300000, guid: 95dd77346d80ea24585dd49a5538581c, type: 3}
+    - {fileID: 21300000, guid: 942eb138f5c953a4388e745f03143870, type: 3}
+    agencies:
+    - name: HumanAgency
+      seal: {fileID: 0}
+      sign: HumanAgency
     seal: {fileID: 0}
-    enterAnim: {fileID: 0}
-    allowedAnim: {fileID: 0}
-    deniedAnim: {fileID: 0}
-  - race: Skyddles
+    enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
+    allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
+    deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
+    enterAudio: {fileID: 0}
+    allowedAudio: {fileID: 0}
+    deniedAudio: {fileID: 0}
+  - invalidDataParams:
+      minWeight: 0
+      maxWeight: 0
+      minHeight: 0
+      maxHeight: 0
+      minBirthday:
+        day: 0
+        month: 0
+        year: 0
+      maxBirthday:
+        day: 0
+        month: 0
+        year: 0
+      minExpirationDate:
+        day: 0
+        month: 0
+        year: 0
+    race: Skyddles
     minBirthday:
       day: 1
       month: 1
@@ -122,11 +196,11 @@ MonoBehaviour:
     - Koki
     - Moki
     - Woki
-    - Lowki
+    - GreatSayaki
     - Laki
     - Kaki
     - Noki
-    - Zoko
+    - Floki
     lastNames:
     - Kan
     - Nan
@@ -141,13 +215,48 @@ MonoBehaviour:
     possibleSexes:
     - M
     - F
-    cities: []
-    photos: []
+    cities:
+    - Papapapa
+    - KrrKrrr
+    - Toubos
+    - Zaturn
+    - Brawlala
+    photos:
+    - {fileID: 21300000, guid: d241bc41ead6b3e40bb2749e59fdfb21, type: 3}
+    - {fileID: 21300000, guid: bdd305c609adc55428a7489eb9078d27, type: 3}
+    - {fileID: 21300000, guid: f5fba9f833b72c54597d8dfd33657f46, type: 3}
+    - {fileID: 21300000, guid: 3d858bafab84a9e419b8af2b843db15e, type: 3}
+    - {fileID: 21300000, guid: bd7542cc1afc7dd4dbba6ff6891bcf40, type: 3}
+    - {fileID: 21300000, guid: ee240946c3c041e48a2bb57584c70b1d, type: 3}
+    agencies:
+    - name: 
+      seal: {fileID: 0}
+      sign: 
     seal: {fileID: 0}
-    enterAnim: {fileID: 0}
-    allowedAnim: {fileID: 0}
-    deniedAnim: {fileID: 0}
-  - race: Slimes
+    enterAnim: {fileID: 7400000, guid: 1eb908539fb82c846bd33ca0b3fc0832, type: 2}
+    allowedAnim: {fileID: 7400000, guid: 780e971427c3cd248b718a3d843852fd, type: 2}
+    deniedAnim: {fileID: 7400000, guid: 780e971427c3cd248b718a3d843852fd, type: 2}
+    enterAudio: {fileID: 0}
+    allowedAudio: {fileID: 0}
+    deniedAudio: {fileID: 0}
+  - invalidDataParams:
+      minWeight: 0
+      maxWeight: 0
+      minHeight: 0
+      maxHeight: 0
+      minBirthday:
+        day: 0
+        month: 0
+        year: 0
+      maxBirthday:
+        day: 0
+        month: 0
+        year: 0
+      minExpirationDate:
+        day: 0
+        month: 0
+        year: 0
+    race: Slimes
     minBirthday:
       day: 1
       month: 1
@@ -176,13 +285,39 @@ MonoBehaviour:
     maxHeight: 230
     possibleSexes:
     - NB
-    cities: []
-    photos: []
+    cities:
+    - 
+    photos:
+    - {fileID: 0}
+    agencies:
+    - name: 
+      seal: {fileID: 0}
+      sign: 
     seal: {fileID: 0}
     enterAnim: {fileID: 0}
     allowedAnim: {fileID: 0}
     deniedAnim: {fileID: 0}
-  - race: Mek'ha
+    enterAudio: {fileID: 0}
+    allowedAudio: {fileID: 0}
+    deniedAudio: {fileID: 0}
+  - invalidDataParams:
+      minWeight: 0
+      maxWeight: 0
+      minHeight: 0
+      maxHeight: 0
+      minBirthday:
+        day: 0
+        month: 0
+        year: 0
+      maxBirthday:
+        day: 0
+        month: 0
+        year: 0
+      minExpirationDate:
+        day: 0
+        month: 0
+        year: 0
+    race: Mek'ha
     minBirthday:
       day: 1
       month: 1
@@ -211,13 +346,45 @@ MonoBehaviour:
     maxHeight: 200
     possibleSexes:
     - NB
-    cities: []
-    photos: []
+    cities:
+    - Nyx
+    - Slip
+    - Kroa
+    - Vioni
+    - Muna
+    photos:
+    - {fileID: 21300000, guid: afac54f08adca244f9e53457da6b01a1, type: 3}
+    - {fileID: 21300000, guid: 3f2ad32a03084334487a3e126cb95e53, type: 3}
+    - {fileID: 21300000, guid: 8ddbae6083abfb34e9d093a138104cee, type: 3}
+    agencies:
+    - name: 
+      seal: {fileID: 0}
+      sign: 
     seal: {fileID: 0}
-    enterAnim: {fileID: 0}
-    allowedAnim: {fileID: 0}
-    deniedAnim: {fileID: 0}
-  - race: Antropomorphe
+    enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
+    allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
+    deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
+    enterAudio: {fileID: 0}
+    allowedAudio: {fileID: 0}
+    deniedAudio: {fileID: 0}
+  - invalidDataParams:
+      minWeight: 0
+      maxWeight: 0
+      minHeight: 0
+      maxHeight: 0
+      minBirthday:
+        day: 0
+        month: 0
+        year: 0
+      maxBirthday:
+        day: 0
+        month: 0
+        year: 0
+      minExpirationDate:
+        day: 0
+        month: 0
+        year: 0
+    race: Antropomorphe
     minBirthday:
       day: 1
       month: 1
@@ -248,9 +415,32 @@ MonoBehaviour:
     - NB
     - F
     - M
-    cities: []
-    photos: []
+    cities:
+    - Nobboria
+    - Raugawa
+    - Chahiness
+    - Ziawi
+    - Venarvis
+    - Ulluela
+    photos:
+    - {fileID: 21300000, guid: 22548423e43c95c4bbed4cb605cf4a8d, type: 3}
+    - {fileID: 21300000, guid: f27bfc7d515fe8246a384d8aa0ebb1ed, type: 3}
+    - {fileID: 21300000, guid: dce657ef6ae078b4aa55248ae1623624, type: 3}
+    - {fileID: 21300000, guid: e394012d50405dd4e97c5bd4dfd8d601, type: 3}
+    - {fileID: 21300000, guid: fee2c1bf6f5c40f4caf8c00dfdedc5a3, type: 3}
+    agencies:
+    - name: 
+      seal: {fileID: 0}
+      sign: 
     seal: {fileID: 0}
-    enterAnim: {fileID: 0}
-    allowedAnim: {fileID: 0}
-    deniedAnim: {fileID: 0}
+    enterAnim: {fileID: 7400000, guid: 76a7bb51af1bbff43af5c84c1d0124e8, type: 2}
+    allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
+    deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
+    enterAudio: {fileID: 0}
+    allowedAudio: {fileID: 0}
+    deniedAudio: {fileID: 0}
+  characterAndPhoto: []
+  workerCardPercent: 100
+  deliveryCardPercent: 20
+  diplomaticLetterPercent: 7
+  weaponLicensePercent: 7
