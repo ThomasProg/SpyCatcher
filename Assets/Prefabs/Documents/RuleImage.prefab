@@ -132,6 +132,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ef73a8bf1653a458076467e24272cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imageColor:
+    defaultColor: {r: 1, g: 1, b: 1, a: 1}
+    onHover: {r: 0.9056604, g: 0.4485582, b: 0.4485582, a: 1}
+    onSelection: {r: 0.75543433, g: 0.8113208, b: 0.21048418, a: 1}
+  textColor:
+    defaultColor: {r: 0, g: 0, b: 0, a: 1}
+    onHover: {r: 1, g: 0.1286972, b: 0, a: 1}
+    onSelection: {r: 0.8967657, g: 1, b: 0, a: 1}
   info:
     type: 12
     value: 

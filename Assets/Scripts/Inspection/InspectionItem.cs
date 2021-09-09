@@ -14,12 +14,27 @@ public struct InspectionItemInfo
     public string value;
 };
 
+[System.Serializable]
+struct ColorInteraction
+{
+    public Color defaultColor;
+    public Color onHover;
+    public Color onSelection;
+};
+
+
 public class InspectionItem : MonoBehaviour
 {
     Text text = null;
     Image image = null;
     string inspectionManagerName = "InspectionManager";
     protected InspectionManager inspectionManager = null;
+
+    [SerializeField]
+    ColorInteraction imageColor;
+
+    [SerializeField]
+    ColorInteraction textColor;
 
     [SerializeField]
     public InspectionItemInfo info;
@@ -57,20 +72,23 @@ public class InspectionItem : MonoBehaviour
                 isSelected = true;
                 if (text != null)
                 {
-                    text.color = Color.yellow;
+                    text.color = textColor.onSelection;
                 }
+                if (image != null)
+                    image.color = imageColor.onSelection;
             }
             else
             {
                 isSelected = false;
                 if (text != null)
                 {
-                    text.color = Color.black;
+                    text.color = textColor.defaultColor;
                 }
+                if (image != null)
+                    image.color = imageColor.defaultColor;
             }
         }
     }
-
 
     void AddCallback(EventTrigger eventTrigger, EventTriggerType triggerType, UnityAction<BaseEventData> action)
     {
@@ -114,7 +132,12 @@ public class InspectionItem : MonoBehaviour
     {
         if (text != null && !IsSelected)
         {
-            text.color = Color.red;
+            text.color = textColor.onHover;
+        }
+
+        if (image != null && !IsSelected)
+        {
+            image.color = imageColor.onHover;
         }
     }
 
@@ -122,7 +145,12 @@ public class InspectionItem : MonoBehaviour
     {
         if (text != null && !IsSelected)
         {
-            text.color = Color.black;
+            text.color = textColor.defaultColor;
+        }
+
+        if (image != null && !IsSelected)
+        {
+            image.color = imageColor.defaultColor;
         }
     }
 

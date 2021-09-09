@@ -153,6 +153,16 @@ public class InspectionManager : MonoBehaviour
                     {
                         return "L'âge est invalide.";
                     }
+
+                case DataType.Photo:
+                    if (immigrantRandomizer.HasValidPhoto(raceItem.info.value, otherItem.info.value))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return "La photo n'est pas valide.";
+                    }
             }
         }
         return null;

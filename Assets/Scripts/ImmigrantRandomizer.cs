@@ -162,6 +162,12 @@ public class ImmigrantRandomizer : MonoBehaviour
         return raceData.maxBirthday.IsLessThan(birthday);
     }
 
+    public bool HasValidPhoto(string race, string photoStr)
+    {
+        System.Predicate<Sprite> predicate = (Sprite s) => DataConversions.ToString(s) == photoStr;
+        return GetRaceData(race).photos.Find(predicate) != null;
+    }
+
     string GetRandomName(RaceData raceData)
     {
         return raceData.GetRandomName();
