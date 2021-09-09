@@ -116,10 +116,16 @@ public class Immigrant : MonoBehaviour
     bool haveDocumentsSpawned = false;
 
     private UnityEngine.UI.Image image;
+    public Sprite photo;
     public Animation anim;
     public AudioSource audioSource;
 
     public bool isSpy = false;
+
+    public void SetPhoto(Sprite newPhoto)
+    {
+        photo = newPhoto;
+    }
 
     public void SetSprite(Sprite characterSprite)
     {

@@ -55,10 +55,6 @@ public struct RaceData
     public AnimationClip allowedAnim;
     public AnimationClip deniedAnim;
 
-    public AudioClip enterAudio;
-    public AudioClip allowedAudio;
-    public AudioClip deniedAudio;
-
     public string GetRandomName()
     {
         Debug.Assert(firstNames != null && firstNames.Count != 0);
@@ -74,9 +70,9 @@ public struct CharacterPhoto
 {
     public Sprite photo;
     public Sprite real;
+    public AudioClip enterSound;
+    public AudioClip deniedSound;
 };
-
-
 
 public class ImmigrantRandomizer : MonoBehaviour
 {
@@ -137,6 +133,12 @@ public class ImmigrantRandomizer : MonoBehaviour
         bool isFound = allRacesDataDic.TryGetValue(race, out raceData);
         Debug.Assert(isFound);
         return raceData;
+    }
+
+    public CharacterPhoto GetCharacterData(Sprite photo)
+    {
+        System.Predicate<CharacterPhoto> predicate = (CharacterPhoto p) => p.photo == photo;
+        return characterAndPhoto.Find(predicate);
     }
 
     public bool IsValidWeight(string race, float weight)
@@ -569,6 +571,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         if (real == null)
             Debug.LogError("invalid photos or sprites set");
         immigrant.SetSprite(real);
+        immigrant.SetPhoto(passport.photo);
 
         AgencyData agencyData = GetRandomAgency(raceData);
 

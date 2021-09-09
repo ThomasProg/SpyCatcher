@@ -267,7 +267,8 @@ public class InspectionManager : MonoBehaviour
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
         currentImmigrant.anim.clip = raceData.allowedAnim;
-        //currentImmigrant.audioSource.clip = raceData.allowedAudio;
+
+        currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).enterSound;
 
         StartCoroutine(OnImmigrantLeave());
     }
@@ -288,7 +289,8 @@ public class InspectionManager : MonoBehaviour
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
         currentImmigrant.anim.clip = raceData.deniedAnim;
-        //currentImmigrant.audioSource.clip = raceData.deniedAudio;
+
+        currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).deniedSound;
 
         StartCoroutine(OnImmigrantLeave());
     }
