@@ -8,15 +8,29 @@ public class DateRule : Rule
 
     public override string CheckIncoherence(InspectionItem item)
     {
-        if (item.info.type == DataType.ExpirationDate)
+        switch (item.info.type)
         {
-            Date expDate = DataConversions.StringToDate(item.info.value);
-            if (expDate.IsLessThan(currentDate))
+            case DataType.ExpirationDate:
             {
-                return "La date d'expiration n'est plus valide.";
+                Date expDate = DataConversions.StringToDate(item.info.value);
+                if (expDate.IsLessThan(currentDate))
+                {
+                    return "La date d'expiration n'est plus valide.";
+                }
+                else
+                    return null;
             }
-            else
-                return null;
+
+            case DataType.DiplomaticLetterCreationDate:
+                {
+                    Date creationDate = DataConversions.StringToDate(item.info.value);
+                    if (currentDate.IsLessThan(creationDate))
+                    {
+                        return "La date de création n'est pas valide.";
+                    }
+                    else
+                        return null;
+                }
         }
         return null;
     }

@@ -21,6 +21,8 @@ public struct InvalidDataParams
     public Date minBirthday;
     public Date maxBirthday;
     public Date minExpirationDate;
+    public Date minDocCreationDate;
+    public Date maxDocCreationDate;
 }
 
 
@@ -59,9 +61,8 @@ public struct RaceData
 
     public string GetRandomName()
     {
-        Debug.Assert(firstNames != null && lastNames != null);
-        Debug.Assert(firstNames.Count != 0);
-        if (lastNames.Count == 0)
+        Debug.Assert(firstNames != null && firstNames.Count != 0);
+        if (lastNames == null || lastNames.Count == 0)
             return firstNames[Random.Range(0, firstNames.Count)];
         else 
             return firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count)];
@@ -122,7 +123,7 @@ public class ImmigrantRandomizer : MonoBehaviour
     [SerializeField] float diplomaticLetterPercent = 7;
     [SerializeField] float weaponLicensePercent = 7;
 
-    private void Start()
+    private void Awake()
     {
         foreach (RaceData data in allRacesData)
         {
@@ -130,7 +131,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         }
     }
 
-    public RaceData GetRaceData(System.String race)
+    public RaceData GetRaceData(string race)
     {
         RaceData raceData;
         bool isFound = allRacesDataDic.TryGetValue(race, out raceData);
@@ -138,14 +139,14 @@ public class ImmigrantRandomizer : MonoBehaviour
         return raceData;
     }
 
-    public bool IsValidWeight(System.String race, float weight)
+    public bool IsValidWeight(string race, float weight)
     {
         RaceData raceData = GetRaceData(race);
 
         return raceData.minWeight < weight && weight < raceData.maxWeight;
     }
 
-    public bool IsValidHeight(System.String race, float height)
+    public bool IsValidHeight(string race, float height)
     {
         RaceData raceData = GetRaceData(race);
 
@@ -286,6 +287,7 @@ public class ImmigrantRandomizer : MonoBehaviour
 
     string GetRandomValidCargo(RaceData raceData)
     {
+        Debug.Assert(cargoList != null && cargoList.Count != 0);
         return cargoList[Random.Range(0, cargoList.Count)];
     }
 
@@ -471,6 +473,87 @@ public class ImmigrantRandomizer : MonoBehaviour
                 break;
         }
     }
+    
+
+    void SetInvalidDeliveryCard(RaceData raceData, DeliveryCard deliveryCard)
+    {
+        int randomParameter = Random.Range(0, 5);
+        switch (randomParameter)
+        {
+            case 0:
+                deliveryCard.name = GetRandomInvalidName(raceData, deliveryCard.name);
+                break;
+            case 1:
+                deliveryCard.originPlanet = GetRandomInvalidPlanet(raceData, raceData.defaultPlanet);
+                break;
+            case 2:
+                deliveryCard.photo = GetRandomPhoto(GetRandomInvalidRaceData(raceData.race));
+                break;
+            case 3:
+                deliveryCard.agency = GetRandomAgency(GetRandomInvalidRaceData(raceData.race)).name;
+                break;
+            case 4:
+                deliveryCard.signature = GetRandomAgency(GetRandomInvalidRaceData(raceData.race)).sign;
+                break;
+            // TODO : Invalid cargo ?
+        }
+    }
+
+    Date GetRandomInvalidCreationDate(RaceData raceData)
+    {
+        return GetRandomDate(raceData.invalidDataParams.minDocCreationDate, raceData.invalidDataParams.maxDocCreationDate);
+    }
+
+    void SetInvalidDiplomaticLetter(RaceData raceData, DiplomaticLetter diplomaticLetter)
+    {
+        int randomParameter = Random.Range(0, 4);
+        switch (randomParameter)
+        {
+            case 0:
+                diplomaticLetter.name = GetRandomInvalidName(raceData, diplomaticLetter.name);
+                break;
+            case 1:
+                diplomaticLetter.seal = GetRandomInvalidRaceData(raceData.race).seal;
+                break;
+            case 2:
+                diplomaticLetter.creationCity = GetRandomPlace(GetRandomInvalidRaceData(raceData.race));
+                break;
+            case 3:
+                diplomaticLetter.creationDate = GetRandomInvalidCreationDate(GetRandomInvalidRaceData(raceData.race));
+                break;
+        }
+    }
+
+    void SetInvalidWeaponLicense(RaceData raceData, WeaponLicense weaponLicense)
+    {
+        int randomParameter = Random.Range(0, 6);
+        switch (randomParameter)
+        {
+            case 0:
+                weaponLicense.name = GetRandomInvalidName(raceData, weaponLicense.name);
+                break;
+            case 1:
+                weaponLicense.birthdate = GetInvalidBirthdate(raceData);
+                break;
+            case 2:
+                weaponLicense.birthplace = GetRandomPlace(GetRandomInvalidRaceData(raceData.race));
+                break;
+            case 3:
+                weaponLicense.sex = GetInvalidRandomSex(raceData, weaponLicense.sex);
+                break;
+            case 4:
+                weaponLicense.expirationDate = GetInvalidExpirationDate(raceData);
+                break;
+            case 5:
+                weaponLicense.photo = GetRandomPhoto(GetRandomInvalidRaceData(raceData.race));
+                break;
+
+                // TODO : Invalid Weaopn Category ?
+                //case 5:
+                //    weaponLicense.category = GetInvalidExpirationDate(raceData);
+                //    break;
+        }
+    }
 
     public void SetRandomData(Immigrant immigrant)
     {
@@ -488,6 +571,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         if (Random.Range(0, 100) < errorPercent)
         {
             SetInvalidPassport(raceData, passport);
+            immigrant.isSpy = true;
         }
 
         if (Random.Range(0, 100) < workerCardPercent)
@@ -497,6 +581,7 @@ public class ImmigrantRandomizer : MonoBehaviour
             if (Random.Range(0, 100) < errorPercent)
             {
                 SetInvalidWorkerCard(raceData, workerCard);
+                immigrant.isSpy = true;
             }
 
             immigrant.documents.Add(workerCard);
@@ -504,17 +589,43 @@ public class ImmigrantRandomizer : MonoBehaviour
 
         if (Random.Range(0, 100) < deliveryCardPercent)
         {
-            immigrant.documents.Add(GetValidRandomDeliveryCard(raceData, passport, agencyData));
+            DeliveryCard deliveryCard = GetValidRandomDeliveryCard(raceData, passport, agencyData);
+
+            if (Random.Range(0, 100) < errorPercent)
+            {
+                SetInvalidDeliveryCard(raceData, deliveryCard);
+                immigrant.isSpy = true;
+            }
+
+            immigrant.documents.Add(deliveryCard);
         }
 
         if (Random.Range(0, 100) < diplomaticLetterPercent)
         {
-            immigrant.documents.Add(GetValidRandomDiplomaticLetter(raceData, passport, agencyData));
+            DiplomaticLetter diplomaticLetter = GetValidRandomDiplomaticLetter(raceData, passport, agencyData);
+
+            if (Random.Range(0, 100) < errorPercent)
+            {
+                SetInvalidDiplomaticLetter(raceData, diplomaticLetter);
+                immigrant.isSpy = true;
+            }
+
+            immigrant.documents.Add(diplomaticLetter);
         }
 
-        if (Random.Range(0, 100) < diplomaticLetterPercent)
+        if (Random.Range(0, 100) < weaponLicensePercent)
         {
             immigrant.documents.Add(GetValidRandomWeaponLicense(raceData, passport, agencyData));
+
+            WeaponLicense weaponLicense = GetValidRandomWeaponLicense(raceData, passport, agencyData);
+
+            if (Random.Range(0, 100) < errorPercent)
+            {
+                SetInvalidWeaponLicense(raceData, weaponLicense);
+                immigrant.isSpy = true;
+            }
+
+            immigrant.documents.Add(weaponLicense);
         }
     }
 }
