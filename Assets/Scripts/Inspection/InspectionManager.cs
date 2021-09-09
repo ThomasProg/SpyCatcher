@@ -45,7 +45,7 @@ public class InspectionManager : MonoBehaviour
     Transform parentTransform;
 
     [SerializeField]
-    ImmigrantRandomizer immigrantRandomizer;
+    public ImmigrantRandomizer immigrantRandomizer;
 
     [SerializeField]
     Text scoreText;
@@ -276,9 +276,10 @@ public class InspectionManager : MonoBehaviour
             CurrentScore += 1;
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
-        currentImmigrant.anim.clip = raceData.allowedAnim;
+        //currentImmigrant.anim.clip = raceData.allowedAnim;
+        currentImmigrant.anim.SetInteger("decision", 2);
 
-        currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).enterSound;
+        //currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).enterSound;
 
         StartCoroutine(OnImmigrantLeave());
     }
@@ -298,9 +299,10 @@ public class InspectionManager : MonoBehaviour
         }
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
-        currentImmigrant.anim.clip = raceData.deniedAnim;
+        //currentImmigrant.anim.clip = raceData.deniedAnim;
+        currentImmigrant.anim.SetInteger("decision", 1);
 
-        currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).deniedSound;
+        //currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).deniedSound;
 
         StartCoroutine(OnImmigrantLeave());
     }
@@ -308,10 +310,10 @@ public class InspectionManager : MonoBehaviour
     IEnumerator OnImmigrantLeave()
     {
         currentImmigrant.RemoveDocuments();
-        currentImmigrant.anim.Play();
+        //currentImmigrant.anim.Play();
         //currentImmigrant.audioSource.Play();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
 
         Destroy(currentImmigrant.gameObject);
 

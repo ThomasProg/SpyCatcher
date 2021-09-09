@@ -31,7 +31,7 @@ public struct RaceData
 {
     public InvalidDataParams invalidDataParams;
 
-    public System.String race;
+    public string race;
     public Date minBirthday;
     public Date maxBirthday;
     public List<string> firstNames;
@@ -74,6 +74,15 @@ public struct CharacterPhoto
     public AudioClip deniedSound;
 };
 
+
+[System.Serializable]
+public struct PlanetData
+{
+    public Planet planet;
+    public Sprite icon;
+};
+
+
 public class ImmigrantRandomizer : MonoBehaviour
 {
     [SerializeField]
@@ -113,6 +122,12 @@ public class ImmigrantRandomizer : MonoBehaviour
     Dictionary<System.String, RaceData> allRacesDataDic = new Dictionary<System.String, RaceData>();
 
     public List<CharacterPhoto> characterAndPhoto;
+    public List<PlanetData> planetsData;
+
+    //PlanetData GetPlanetData(Planet planet)
+    //{
+
+    //}
 
     [SerializeField] float workerCardPercent = 20;
     [SerializeField] float deliveryCardPercent = 20;
@@ -252,7 +267,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         passport.birthPlace = GetRandomPlace(raceData);
         passport.expirationDate = GetRandomDate(currentDate, passportMaxExpirationDate);
 
-        passport.planetIcon = GetValidPlanetIcon(raceData);
+        //passport.planetIcon = GetValidPlanetIcon(raceData);
         passport.planetSeal = GetValidSeal(raceData);
         passport.photo = GetRandomPhoto(raceData);
 
@@ -358,7 +373,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         return (T) values.GetValue(Random.Range(0, values.Length));
     }
 
-    System.String GetRandomRace()
+    string GetRandomRace()
     {
         return allRacesData[Random.Range(0, allRacesData.Count)].race;
     }
@@ -578,6 +593,7 @@ public class ImmigrantRandomizer : MonoBehaviour
             Debug.LogError("invalid photos or sprites set");
         immigrant.SetSprite(real);
         immigrant.SetPhoto(passport.photo);
+        immigrant.SetRace(passport.race);
 
         AgencyData agencyData = GetRandomAgency(raceData);
 

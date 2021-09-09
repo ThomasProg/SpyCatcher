@@ -157,4 +157,10 @@ public class DataConversions
         newDate.year = int.Parse(s[2]);
         return newDate;
     }
+
+    //public Sprite ToSprite(Planet p)
+    //{
+    //    InspectionManager inspectionManager = GameObject.Find("InspectionManager").GetComponent<InspectionManager>();
+    //    inspectionManager.immigrantRandomizer.getP
+    //}
 };

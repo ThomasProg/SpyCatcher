@@ -38,7 +38,7 @@ public class PassportLinker : MonoBehaviour
         birthplace.Text = passport.birthPlace;
         expirationDate.Text = DataConversions.ToString(passport.expirationDate);
 
-        planetIcon.Image = passport.planetIcon;
+        //planetIcon.Image = DataConversions.ToSprite(passport.planetIcon);
         photo.Image = passport.photo;
         planetSeal.Image = passport.planetSeal;
     }

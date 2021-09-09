@@ -88,6 +88,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffc65963af1c844e8de70459fdc610d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  race: 
+  photo: {fileID: 0}
+  anim: {fileID: 0}
+  audioSource: {fileID: 0}
+  isSpy: 0
+  SkyddlesController: {fileID: 9100000, guid: 5ea89f7186a566d4e9dca0990bdbb558, type: 2}
 --- !u!95 &1462939075
 Animator:
   serializedVersion: 3

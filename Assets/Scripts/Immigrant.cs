@@ -27,7 +27,7 @@ public class Passport : Document
     public Date expirationDate;
     public string birthPlace; // city
 
-    public Sprite planetIcon;
+    public Planet planetIcon;
     public Sprite photo;
     public Sprite planetSeal;
 
@@ -117,7 +117,7 @@ public class Immigrant : MonoBehaviour
 
     private UnityEngine.UI.Image image;
     public Sprite photo;
-    public Animation anim;
+    public Animator anim;
     public AudioSource audioSource;
 
     public bool isSpy = false;
@@ -152,9 +152,19 @@ public class Immigrant : MonoBehaviour
     {
         creationTime = Time.time;
 
-        anim = GetComponent<Animation>();
+        anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         image = GetComponent<UnityEngine.UI.Image>();
+    }
+
+    public RuntimeAnimatorController SkyddlesController;
+
+    public void SetRace(string race)
+    {
+        if (race == "Skyddles")
+        {
+            anim.runtimeAnimatorController = SkyddlesController;
+        }
     }
 
     private void Update()
