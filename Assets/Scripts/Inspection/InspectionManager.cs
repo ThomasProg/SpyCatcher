@@ -266,10 +266,10 @@ public class InspectionManager : MonoBehaviour
             CurrentScore += 1;
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
-        //currentImmigrant.anim.clip = raceData.allowedAnim;
+        currentImmigrant.anim.clip = raceData.allowedAnim;
         //currentImmigrant.audioSource.clip = raceData.allowedAudio;
 
-        OnImmigrantLeave();
+        StartCoroutine(OnImmigrantLeave());
     }
 
     public void DenyAccess()
@@ -287,20 +287,23 @@ public class InspectionManager : MonoBehaviour
         }
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
-        //currentImmigrant.anim.clip = raceData.deniedAnim;
+        currentImmigrant.anim.clip = raceData.deniedAnim;
         //currentImmigrant.audioSource.clip = raceData.deniedAudio;
 
-        OnImmigrantLeave();
+        StartCoroutine(OnImmigrantLeave());
     }
 
-    public void OnImmigrantLeave()
+    IEnumerator OnImmigrantLeave()
     {
-        //currentImmigrant.anim.Play();
+        currentImmigrant.RemoveDocuments();
+        currentImmigrant.anim.Play();
         //currentImmigrant.audioSource.Play();
 
-        currentImmigrant.RemoveDocuments();
+        yield return new WaitForSeconds(1);
 
         Destroy(currentImmigrant.gameObject);
+
+        yield return new WaitForSeconds(1);
 
         GenerateNewImmigrant();
     }
