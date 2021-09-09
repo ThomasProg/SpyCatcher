@@ -51,11 +51,11 @@ MonoBehaviour:
   currentDate:
     day: 14
     month: 9
-    year: 2445
-  passportMaxExpirationDate:
-    day: 14
-    month: 9
     year: 2452
+  passportMaxExpirationDate:
+    day: 31
+    month: 12
+    year: 2454
   workerCardMaxExpirationDate:
     day: 0
     month: 0
@@ -81,17 +81,17 @@ MonoBehaviour:
       minHeight: 0
       maxHeight: 0
       minBirthday:
-        day: 0
-        month: 0
-        year: 0
+        day: 1
+        month: 1
+        year: 2200
       maxBirthday:
-        day: 0
-        month: 0
-        year: 0
+        day: 31
+        month: 12
+        year: 2300
       minExpirationDate:
-        day: 0
-        month: 0
-        year: 0
+        day: 1
+        month: 1
+        year: 50
       minDocCreationDate:
         day: 0
         month: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
     - Visia
     - Mastercard
     defaultPlanet: 0
-    planetsIcon: {fileID: 0}
+    planetsIcon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
     minWeight: 45
     maxWeight: 150
     minHeight: 150
@@ -156,11 +156,7 @@ MonoBehaviour:
     - Nyonis
     - Shrouxe
     photos:
-    - {fileID: 21300000, guid: f9e256580b3df054b9f6a15b2340da82, type: 3}
-    - {fileID: 21300000, guid: b174b4f9f63b6e64e850c70719a1e7d5, type: 3}
-    - {fileID: 21300000, guid: 1060f99aa67db694785e192b98924751, type: 3}
-    - {fileID: 21300000, guid: 95dd77346d80ea24585dd49a5538581c, type: 3}
-    - {fileID: 21300000, guid: 942eb138f5c953a4388e745f03143870, type: 3}
+    - {fileID: 21300000, guid: 49e958cb688a28c4ab52fdf8306a8e18, type: 3}
     agencies:
     - name: HumanAgency
       seal: {fileID: 0}
@@ -223,7 +219,7 @@ MonoBehaviour:
     - Lan
     - Van
     defaultPlanet: 3
-    planetsIcon: {fileID: 0}
+    planetsIcon: {fileID: 21300000, guid: 3538607bc685ae24591e54f8f578c912, type: 3}
     minWeight: 10
     maxWeight: 20
     minHeight: 30
@@ -238,12 +234,12 @@ MonoBehaviour:
     - Zaturn
     - Brawlala
     photos:
-    - {fileID: 21300000, guid: d241bc41ead6b3e40bb2749e59fdfb21, type: 3}
-    - {fileID: 21300000, guid: bdd305c609adc55428a7489eb9078d27, type: 3}
-    - {fileID: 21300000, guid: f5fba9f833b72c54597d8dfd33657f46, type: 3}
-    - {fileID: 21300000, guid: 3d858bafab84a9e419b8af2b843db15e, type: 3}
-    - {fileID: 21300000, guid: bd7542cc1afc7dd4dbba6ff6891bcf40, type: 3}
-    - {fileID: 21300000, guid: ee240946c3c041e48a2bb57584c70b1d, type: 3}
+    - {fileID: 21300000, guid: 23305316a1d3af542ba11a696391b78f, type: 3}
+    - {fileID: 21300000, guid: 0a554dafb91f67b4eb637e06d24e6622, type: 3}
+    - {fileID: 21300000, guid: 0eba9a1ec7cd93e479dc6362c40372b6, type: 3}
+    - {fileID: 21300000, guid: 56cc0a2ae86f8a54d9e2e2e0d7ec0383, type: 3}
+    - {fileID: 21300000, guid: 9a9b817d81d8cae4d83fedc256f55d66, type: 3}
+    - {fileID: 21300000, guid: 35fe61784e7b42b428fb06c7e8dfcd17, type: 3}
     agencies:
     - name: 
       seal: {fileID: 0}
@@ -371,7 +367,7 @@ MonoBehaviour:
     - Panzer
     lastNames: []
     defaultPlanet: 1
-    planetsIcon: {fileID: 0}
+    planetsIcon: {fileID: 21300000, guid: 5a6876a0bf10f184d9f7194e7fc7aed4, type: 3}
     minWeight: 80
     maxWeight: 150
     minHeight: 180
@@ -385,9 +381,9 @@ MonoBehaviour:
     - Vioni
     - Muna
     photos:
-    - {fileID: 21300000, guid: afac54f08adca244f9e53457da6b01a1, type: 3}
-    - {fileID: 21300000, guid: 3f2ad32a03084334487a3e126cb95e53, type: 3}
-    - {fileID: 21300000, guid: 8ddbae6083abfb34e9d093a138104cee, type: 3}
+    - {fileID: 21300000, guid: eb2f92318eea6474dbdcb4d8b9ec8616, type: 3}
+    - {fileID: 21300000, guid: f04639fed673a764788ef12db0c87d4e, type: 3}
+    - {fileID: 21300000, guid: c55d53528b1db8a49b616ad7f358bb2a, type: 3}
     agencies:
     - name: 
       seal: {fileID: 0}
@@ -446,7 +442,7 @@ MonoBehaviour:
     - Niko
     lastNames: []
     defaultPlanet: 0
-    planetsIcon: {fileID: 0}
+    planetsIcon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
     minWeight: 160
     maxWeight: 240
     minHeight: 60
@@ -463,11 +459,11 @@ MonoBehaviour:
     - Venarvis
     - Ulluela
     photos:
-    - {fileID: 21300000, guid: 22548423e43c95c4bbed4cb605cf4a8d, type: 3}
-    - {fileID: 21300000, guid: f27bfc7d515fe8246a384d8aa0ebb1ed, type: 3}
-    - {fileID: 21300000, guid: dce657ef6ae078b4aa55248ae1623624, type: 3}
-    - {fileID: 21300000, guid: e394012d50405dd4e97c5bd4dfd8d601, type: 3}
-    - {fileID: 21300000, guid: fee2c1bf6f5c40f4caf8c00dfdedc5a3, type: 3}
+    - {fileID: 21300000, guid: d007e70ae9f26d24cbb1157548633d6e, type: 3}
+    - {fileID: 21300000, guid: 2dcae1506c5185541a29573dc79a8995, type: 3}
+    - {fileID: 21300000, guid: f6e9ff339f139274188f3812ba6775a1, type: 3}
+    - {fileID: 21300000, guid: 8629e1a8b780dab49b7a58896ae29da1, type: 3}
+    - {fileID: 21300000, guid: 1b9bc663fd2cb8543945f89e9f9c2e3e, type: 3}
     agencies:
     - name: 
       seal: {fileID: 0}
