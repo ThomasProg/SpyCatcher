@@ -276,7 +276,7 @@ MonoBehaviour:
         day: 0
         month: 0
         year: 0
-    race: Slimes
+    race: Chonkers
     minBirthday:
       day: 1
       month: 1
@@ -298,25 +298,31 @@ MonoBehaviour:
     - Gumgum
     lastNames: []
     defaultPlanet: 2
-    planetsIcon: {fileID: 0}
+    planetsIcon: {fileID: 21300000, guid: 47873e752d558d74aadca9bec0ecb980, type: 3}
     minWeight: 100
     maxWeight: 200
     minHeight: 180
     maxHeight: 230
     possibleSexes:
-    - NB
+    - M
     cities:
-    - 
+    - Noboria
+    - Raugawa
+    - Chahiness
+    - Ziawi
+    - Venarvis
+    - Ulluela
     photos:
-    - {fileID: 0}
+    - {fileID: 21300000, guid: abd9f4a77e5a9d244af9efb3560a1494, type: 3}
+    - {fileID: 21300000, guid: d9309d9510ef7ad4b8a00dd55484a7f6, type: 3}
     agencies:
     - name: 
       seal: {fileID: 0}
       sign: 
     seal: {fileID: 0}
-    enterAnim: {fileID: 0}
-    allowedAnim: {fileID: 0}
-    deniedAnim: {fileID: 0}
+    enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
+    allowedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
+    deniedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     enterAudio: {fileID: 0}
     allowedAudio: {fileID: 0}
     deniedAudio: {fileID: 0}
@@ -472,6 +478,8 @@ MonoBehaviour:
     - {fileID: 21300000, guid: f6e9ff339f139274188f3812ba6775a1, type: 3}
     - {fileID: 21300000, guid: 8629e1a8b780dab49b7a58896ae29da1, type: 3}
     - {fileID: 21300000, guid: 1b9bc663fd2cb8543945f89e9f9c2e3e, type: 3}
+    - {fileID: 21300000, guid: 5c73d3494b7ee384aaf0e1fab17e0aeb, type: 3}
+    - {fileID: 21300000, guid: ac078773e75ffda42a3960c498ae2546, type: 3}
     agencies:
     - name: 
       seal: {fileID: 0}
@@ -514,14 +522,14 @@ MonoBehaviour:
     real: {fileID: 21300000, guid: f5fba9f833b72c54597d8dfd33657f46, type: 3}
   - photo: {fileID: 21300000, guid: 35fe61784e7b42b428fb06c7e8dfcd17, type: 3}
     real: {fileID: 21300000, guid: d241bc41ead6b3e40bb2749e59fdfb21, type: 3}
-  - photo: {fileID: 0}
-    real: {fileID: 0}
-  - photo: {fileID: 0}
-    real: {fileID: 0}
-  - photo: {fileID: 0}
-    real: {fileID: 0}
-  - photo: {fileID: 0}
-    real: {fileID: 0}
+  - photo: {fileID: 21300000, guid: 5c73d3494b7ee384aaf0e1fab17e0aeb, type: 3}
+    real: {fileID: 21300000, guid: af690a8fe0762184ea949144cc64ef43, type: 3}
+  - photo: {fileID: 21300000, guid: ac078773e75ffda42a3960c498ae2546, type: 3}
+    real: {fileID: 21300000, guid: ec11c2d2cdba7ad44837b0c15413ac6f, type: 3}
+  - photo: {fileID: 21300000, guid: d9309d9510ef7ad4b8a00dd55484a7f6, type: 3}
+    real: {fileID: 21300000, guid: 604afc7a910c0af4bab6c8384d8c09b6, type: 3}
+  - photo: {fileID: 21300000, guid: abd9f4a77e5a9d244af9efb3560a1494, type: 3}
+    real: {fileID: 21300000, guid: e31dea2016e61b04f91cf766ceafdb88, type: 3}
   workerCardPercent: 100
   deliveryCardPercent: 20
   diplomaticLetterPercent: 7
