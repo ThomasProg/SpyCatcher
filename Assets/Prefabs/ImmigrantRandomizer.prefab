@@ -452,12 +452,20 @@ MonoBehaviour:
     - F
     - M
     cities:
-    - Nobboria
-    - Raugawa
-    - Chahiness
-    - Ziawi
-    - Venarvis
-    - Ulluela
+    - 'Ville 1 '
+    - 'Ville 2 '
+    - 'Ville 3 '
+    - 'Ville 4 '
+    - 'Ville 5 '
+    - 'Ville 6 '
+    - 'Ville 7 '
+    - 'Ville 8 '
+    - 'Ville 9 '
+    - 'Ville 10 '
+    - Ville 11
+    - Ville 12
+    - Nyonis
+    - Shrouxe
     photos:
     - {fileID: 21300000, guid: d007e70ae9f26d24cbb1157548633d6e, type: 3}
     - {fileID: 21300000, guid: 2dcae1506c5185541a29573dc79a8995, type: 3}
