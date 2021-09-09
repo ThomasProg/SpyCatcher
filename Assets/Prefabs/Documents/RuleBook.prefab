@@ -120,7 +120,6 @@ GameObject:
   - component: {fileID: 6892873294305230810}
   - component: {fileID: 6892873294305230809}
   - component: {fileID: 6892873294305230808}
-  - component: {fileID: 4678165511608790365}
   m_Layer: 5
   m_Name: RuleBook
   m_TagString: Untagged
@@ -245,24 +244,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &4678165511608790365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6892873294305230806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 157ce9d8d2a66564dabe32fffa3fa5a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photo: {fileID: 0}
-  pName: {fileID: 0}
-  agency: {fileID: 0}
-  cargo: {fileID: 0}
-  originPlanet: {fileID: 0}
-  signature: {fileID: 0}
 --- !u!1001 &7817212484749333460
 PrefabInstance:
   m_ObjectHideFlags: 0
