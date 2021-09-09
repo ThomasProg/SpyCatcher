@@ -124,10 +124,11 @@ public class ImmigrantRandomizer : MonoBehaviour
     public List<CharacterPhoto> characterAndPhoto;
     public List<PlanetData> planetsData;
 
-    //PlanetData GetPlanetData(Planet planet)
-    //{
-
-    //}
+    public PlanetData GetPlanetData(Planet planet)
+    {
+        System.Predicate<PlanetData> predicate = (PlanetData p) => p.planet == planet;
+        return planetsData.Find(predicate);
+    }
 
     [SerializeField] float workerCardPercent = 20;
     [SerializeField] float deliveryCardPercent = 20;

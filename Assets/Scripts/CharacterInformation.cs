@@ -158,9 +158,9 @@ public class DataConversions
         return newDate;
     }
 
-    //public Sprite ToSprite(Planet p)
-    //{
-    //    InspectionManager inspectionManager = GameObject.Find("InspectionManager").GetComponent<InspectionManager>();
-    //    inspectionManager.immigrantRandomizer.getP
-    //}
+    public static Sprite ToSprite(Planet p)
+    {
+        InspectionManager inspectionManager = GameObject.Find("InspectionManager").GetComponent<InspectionManager>();
+        return inspectionManager.immigrantRandomizer.GetPlanetData(p).icon;
+    }
 };

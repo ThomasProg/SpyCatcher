@@ -87,7 +87,7 @@ public class InspectionManager : MonoBehaviour
         callbackText.text = msg;
     }
 
-    String CheckIncoherenceWithRule(Rule rule, InspectionItem otherItem)
+    string CheckIncoherenceWithRule(Rule rule, InspectionItem otherItem)
     {
         if (rule == null)
             return null;
@@ -276,7 +276,6 @@ public class InspectionManager : MonoBehaviour
             CurrentScore += 1;
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
-        //currentImmigrant.anim.clip = raceData.allowedAnim;
         currentImmigrant.anim.SetInteger("decision", 2);
 
         //currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).enterSound;
@@ -299,7 +298,6 @@ public class InspectionManager : MonoBehaviour
         }
 
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
-        //currentImmigrant.anim.clip = raceData.deniedAnim;
         currentImmigrant.anim.SetInteger("decision", 1);
 
         //currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).deniedSound;
@@ -310,7 +308,6 @@ public class InspectionManager : MonoBehaviour
     IEnumerator OnImmigrantLeave()
     {
         currentImmigrant.RemoveDocuments();
-        //currentImmigrant.anim.Play();
         //currentImmigrant.audioSource.Play();
 
         yield return new WaitForSeconds(3);
