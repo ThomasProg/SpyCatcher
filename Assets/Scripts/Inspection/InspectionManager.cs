@@ -47,6 +47,22 @@ public class InspectionManager : MonoBehaviour
     [SerializeField]
     ImmigrantRandomizer immigrantRandomizer;
 
+    [SerializeField]
+    Text scoreText;
+
+    [SerializeField]
+    int currentScore = 0;
+    public int CurrentScore
+    {
+        get { return currentScore; }
+        set
+        {
+            currentScore = value;
+            scoreText.text = currentScore.ToString();
+        }
+    }
+
+
     InspectionManager()
     {
         if (incoherenceMessages.Count != 0)
@@ -241,10 +257,17 @@ public class InspectionManager : MonoBehaviour
     {
         if (currentImmigrant == null)
             return;
-        
+
+        if (currentImmigrant.isSpy)
+        {
+            CurrentScore -= 1;
+        }
+        else
+            CurrentScore += 1;
+
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
-        currentImmigrant.anim.clip = raceData.allowedAnim;
-        currentImmigrant.audioSource.clip = raceData.allowedAudio;
+        //currentImmigrant.anim.clip = raceData.allowedAnim;
+        //currentImmigrant.audioSource.clip = raceData.allowedAudio;
 
         OnImmigrantLeave();
     }
@@ -254,17 +277,26 @@ public class InspectionManager : MonoBehaviour
         if (currentImmigrant == null)
             return;
 
+        if (currentImmigrant.isSpy)
+        {
+            CurrentScore += 1;
+        }
+        else
+        {
+            CurrentScore -= 1;
+        }
+
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
-        currentImmigrant.anim.clip = raceData.deniedAnim;
-        currentImmigrant.audioSource.clip = raceData.deniedAudio;
+        //currentImmigrant.anim.clip = raceData.deniedAnim;
+        //currentImmigrant.audioSource.clip = raceData.deniedAudio;
 
         OnImmigrantLeave();
     }
 
     public void OnImmigrantLeave()
     {
-        currentImmigrant.anim.Play();
-        currentImmigrant.audioSource.Play();
+        //currentImmigrant.anim.Play();
+        //currentImmigrant.audioSource.Play();
 
         currentImmigrant.RemoveDocuments();
 
