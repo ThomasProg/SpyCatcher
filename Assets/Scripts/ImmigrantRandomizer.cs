@@ -564,7 +564,9 @@ public class ImmigrantRandomizer : MonoBehaviour
         immigrant.race = race;
 
         Passport passport = GetValidRandomPassport(raceData);
-        immigrant.documents.Add(passport);
+
+        System.Predicate<CharacterPhoto> predicate = (CharacterPhoto p) => p.photo == passport.photo;
+        immigrant.SetSprite(characterAndPhoto.Find(predicate).real);
 
         AgencyData agencyData = GetRandomAgency(raceData);
 
@@ -573,6 +575,8 @@ public class ImmigrantRandomizer : MonoBehaviour
             SetInvalidPassport(raceData, passport);
             immigrant.isSpy = true;
         }
+
+        immigrant.documents.Add(passport);
 
         if (Random.Range(0, 100) < workerCardPercent)
         {

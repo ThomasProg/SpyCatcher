@@ -115,10 +115,16 @@ public class Immigrant : MonoBehaviour
     float creationTime;
     bool haveDocumentsSpawned = false;
 
+    private UnityEngine.UI.Image image;
     public Animation anim;
     public AudioSource audioSource;
 
     public bool isSpy = false;
+
+    public void SetSprite(Sprite characterSprite)
+    {
+        image.sprite = characterSprite;
+    }
 
     public void InstantiateDocuments()
     {
@@ -136,13 +142,13 @@ public class Immigrant : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         creationTime = Time.time;
 
         anim = GetComponent<Animation>();
         audioSource = GetComponent<AudioSource>();
-
+        image = GetComponent<UnityEngine.UI.Image>();
     }
 
     private void Update()
