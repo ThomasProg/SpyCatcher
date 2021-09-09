@@ -59,9 +59,8 @@ public struct RaceData
 
     public string GetRandomName()
     {
-        Debug.Assert(firstNames != null && lastNames != null);
-        Debug.Assert(firstNames.Count != 0);
-        if (lastNames.Count == 0)
+        Debug.Assert(firstNames != null && firstNames.Count != 0);
+        if (lastNames == null || lastNames.Count == 0)
             return firstNames[Random.Range(0, firstNames.Count)];
         else 
             return firstNames[Random.Range(0, firstNames.Count)] + " " + lastNames[Random.Range(0, lastNames.Count)];
@@ -122,7 +121,7 @@ public class ImmigrantRandomizer : MonoBehaviour
     [SerializeField] float diplomaticLetterPercent = 7;
     [SerializeField] float weaponLicensePercent = 7;
 
-    private void Start()
+    private void Awake()
     {
         foreach (RaceData data in allRacesData)
         {
@@ -130,7 +129,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         }
     }
 
-    public RaceData GetRaceData(System.String race)
+    public RaceData GetRaceData(string race)
     {
         RaceData raceData;
         bool isFound = allRacesDataDic.TryGetValue(race, out raceData);
@@ -138,14 +137,14 @@ public class ImmigrantRandomizer : MonoBehaviour
         return raceData;
     }
 
-    public bool IsValidWeight(System.String race, float weight)
+    public bool IsValidWeight(string race, float weight)
     {
         RaceData raceData = GetRaceData(race);
 
         return raceData.minWeight < weight && weight < raceData.maxWeight;
     }
 
-    public bool IsValidHeight(System.String race, float height)
+    public bool IsValidHeight(string race, float height)
     {
         RaceData raceData = GetRaceData(race);
 
