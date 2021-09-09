@@ -323,9 +323,9 @@ public class ImmigrantRandomizer : MonoBehaviour
 
         deliveryCard.agency = agencyData.name;
         deliveryCard.cargo = GetRandomValidCargo(raceData);
-        deliveryCard.signature = agencyData.sign;
+        //deliveryCard.signature = agencyData.sign;
 
-        deliveryCard.photo = passport.photo;
+        //deliveryCard.photo = passport.photo;
 
         deliveryCard.linkerPrefab = deliveryCardPrefab;
         docSpawnCanvas.transform.position = docSpawnPos;
@@ -358,7 +358,6 @@ public class ImmigrantRandomizer : MonoBehaviour
         weaponLicense.sex = passport.sex;
         weaponLicense.expirationDate = GetRandomDate(passport.birthdate, currentDate);
 
-        weaponLicense.category = agencyData.name;
         weaponLicense.photo = passport.photo;
 
         weaponLicense.linkerPrefab = weaponLicensePrefab;
@@ -501,7 +500,7 @@ public class ImmigrantRandomizer : MonoBehaviour
 
     void SetInvalidDeliveryCard(RaceData raceData, DeliveryCard deliveryCard)
     {
-        int randomParameter = Random.Range(0, 5);
+        int randomParameter = Random.Range(0, 2);
         switch (randomParameter)
         {
             case 0:
@@ -510,15 +509,15 @@ public class ImmigrantRandomizer : MonoBehaviour
             case 1:
                 deliveryCard.originPlanet = GetRandomInvalidPlanet(raceData, raceData.defaultPlanet);
                 break;
+            //case 3:
+            //    deliveryCard.photo = GetRandomPhoto(GetRandomInvalidRaceData(raceData.race));
+            //    break;
             case 2:
-                deliveryCard.photo = GetRandomPhoto(GetRandomInvalidRaceData(raceData.race));
-                break;
-            case 3:
                 deliveryCard.agency = GetRandomAgency(GetRandomInvalidRaceData(raceData.race)).name;
                 break;
-            case 4:
-                deliveryCard.signature = GetRandomAgency(GetRandomInvalidRaceData(raceData.race)).sign;
-                break;
+            //case 4:
+            //    deliveryCard.signature = GetRandomAgency(GetRandomInvalidRaceData(raceData.race)).sign;
+            //    break;
             // TODO : Invalid cargo ?
         }
     }

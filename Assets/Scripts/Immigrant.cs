@@ -60,12 +60,12 @@ public class WorkerCard : Document
 
 public class DeliveryCard : Document
 {
-    public Sprite photo;
+    //public Sprite photo;
     public string name;
     public string agency;
     public string cargo;
     public Planet originPlanet;
-    public string signature;
+    //public string signature;
 
     public override void InstantiateDocument()
     {
@@ -97,8 +97,8 @@ public class WeaponLicense : Document
     public string birthplace;
     public string sex;
     public Date expirationDate;
-    public string category;
     public Sprite photo;
+    public Planet originPlanet;
 
     public override void InstantiateDocument()
     {

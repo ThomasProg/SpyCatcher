@@ -802,61 +802,6 @@ PrefabInstance:
       propertyPath: docSpawnCanvas
       value: 
       objectReference: {fileID: 1907509802}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[0].icon
-      value: 
-      objectReference: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1,
-        type: 3}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[1].icon
-      value: 
-      objectReference: {fileID: 21300000, guid: 5a6876a0bf10f184d9f7194e7fc7aed4,
-        type: 3}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[2].icon
-      value: 
-      objectReference: {fileID: 21300000, guid: 47873e752d558d74aadca9bec0ecb980,
-        type: 3}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[3].icon
-      value: 
-      objectReference: {fileID: 21300000, guid: 3538607bc685ae24591e54f8f578c912,
-        type: 3}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[4].icon
-      value: 
-      objectReference: {fileID: 21300000, guid: d2197d266441eae4d9f8a1f64241f538,
-        type: 3}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[1].planet
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[2].planet
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[3].planet
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7927948549290689147, guid: 2ad8421085728f64e84220209756247c,
-        type: 3}
-      propertyPath: planetsData.Array.data[4].planet
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7927948549290689148, guid: 2ad8421085728f64e84220209756247c,
         type: 3}
       propertyPath: m_Name
@@ -1701,6 +1646,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6892873294305230808, guid: d13a07cfa2272cc4f9ff169ce0651f33,
+        type: 3}
+      propertyPath: dragArea.Array.data[0]
+      value: 
+      objectReference: {fileID: 1299491232}
+    - target: {fileID: 6892873294305230808, guid: d13a07cfa2272cc4f9ff169ce0651f33,
+        type: 3}
+      propertyPath: dragArea.Array.data[1]
+      value: 
+      objectReference: {fileID: 1512007132}
+    - target: {fileID: 6892873294305230808, guid: d13a07cfa2272cc4f9ff169ce0651f33,
+        type: 3}
+      propertyPath: dragArea.Array.data[2]
+      value: 
+      objectReference: {fileID: 1654613843}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d13a07cfa2272cc4f9ff169ce0651f33, type: 3}
 --- !u!1 &962118647

@@ -9,7 +9,6 @@ public class WeaponLicenseLinker : MonoBehaviour
     [SerializeField] InspectionItem sex;
     [SerializeField] InspectionItem expirationDate;
     [SerializeField] InspectionItem birthplace;
-    [SerializeField] InspectionItem category;
     [SerializeField] InspectionItem photo;
 
     private void Awake()
@@ -24,7 +23,6 @@ public class WeaponLicenseLinker : MonoBehaviour
         birthdate.Text = DataConversions.ToString(weaponLicense.birthdate);
         expirationDate.Text = DataConversions.ToString(weaponLicense.expirationDate);
         birthplace.Text = weaponLicense.birthplace;
-        category.Text = weaponLicense.category;
 
         photo.Image = weaponLicense.photo;
     }
@@ -36,7 +34,6 @@ public class WeaponLicenseLinker : MonoBehaviour
         birthdate.info.type = DataType.Birthday;
         birthplace.info.type = DataType.Birthplace;
         expirationDate.info.type = DataType.ExpirationDate;
-        category.info.type = DataType.WeaponLicenseCategory;
 
         photo.info.type = DataType.Photo;
     }
@@ -48,7 +45,6 @@ public class WeaponLicenseLinker : MonoBehaviour
         birthdate.info.value = DataConversions.ToString(weaponLicense.birthdate);
         birthplace.info.value = DataConversions.ToString(weaponLicense.birthplace);
         expirationDate.info.value = DataConversions.ToString(weaponLicense.expirationDate);
-        category.info.value = weaponLicense.category;
 
         photo.info.value = DataConversions.ToString(weaponLicense.photo);
     }

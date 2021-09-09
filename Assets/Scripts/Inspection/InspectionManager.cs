@@ -263,9 +263,11 @@ public class InspectionManager : MonoBehaviour
         }
     }
 
+    bool lockButtons = false;
+
     public void AllowAccess()
     {
-        if (currentImmigrant == null)
+        if (lockButtons || currentImmigrant == null)
             return;
 
         if (currentImmigrant.isSpy)
@@ -285,7 +287,7 @@ public class InspectionManager : MonoBehaviour
 
     public void DenyAccess()
     {
-        if (currentImmigrant == null)
+        if (lockButtons || currentImmigrant == null)
             return;
 
         if (currentImmigrant.isSpy)
@@ -307,15 +309,18 @@ public class InspectionManager : MonoBehaviour
 
     IEnumerator OnImmigrantLeave()
     {
+        lockButtons = true;
         currentImmigrant.RemoveDocuments();
         //currentImmigrant.audioSource.Play();
 
         yield return new WaitForSeconds(3);
 
+        currentImmigrant.RemoveDocuments();
         Destroy(currentImmigrant.gameObject);
 
         yield return new WaitForSeconds(1);
 
         GenerateNewImmigrant();
+        lockButtons = false;
     }
 }

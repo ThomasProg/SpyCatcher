@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DeliveryCardLinker : MonoBehaviour
 {
-    [SerializeField] InspectionItem photo;
+    //[SerializeField] InspectionItem photo;
     [SerializeField] InspectionItem pName;
     [SerializeField] InspectionItem agency;
     [SerializeField] InspectionItem cargo;
     [SerializeField] InspectionItem originPlanet;
-    [SerializeField] InspectionItem signature;
+    //[SerializeField] InspectionItem signature;
 
 
     private void Awake()
@@ -20,31 +20,31 @@ public class DeliveryCardLinker : MonoBehaviour
     public void SetText(DeliveryCard deliveryCard)
     {
         pName.Text = deliveryCard.name;
-        photo.Image = deliveryCard.photo;
+        //photo.Image = deliveryCard.photo;
         agency.Text = deliveryCard.agency;
         cargo.Text = deliveryCard.cargo;
         originPlanet.Text= DataConversions.ToString(deliveryCard.originPlanet);
-        signature.Text = deliveryCard.signature;
+        //signature.Text = deliveryCard.signature;
     }
 
     public void SetTypes()
     {
         pName.info.type = DataType.Name;
-        photo.info.type = DataType.Photo;
+        //photo.info.type = DataType.Photo;
         agency.info.type = DataType.Agency;
         cargo.info.type = DataType.Cargo;
         originPlanet.info.type = DataType.Planet;
-        signature.info.type = DataType.Agency;
+        //signature.info.type = DataType.Agency;
     }
 
     public void SetValues(DeliveryCard deliveryCard)
     {
         pName.info.value = deliveryCard.name;
-        photo.info.value = DataConversions.ToString(deliveryCard.photo);
+        //photo.info.value = DataConversions.ToString(deliveryCard.photo);
         agency.info.value = deliveryCard.agency;
         cargo.info.value = deliveryCard.cargo;
         originPlanet.info.value = DataConversions.ToString(deliveryCard.originPlanet);
-        signature.info.value = deliveryCard.signature;
+        //signature.info.value = deliveryCard.signature;
     }
 
     public void SetData(DeliveryCard deliveryCard)

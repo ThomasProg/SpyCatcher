@@ -73,7 +73,9 @@ MonoBehaviour:
   errorPercent: 100
   docSpawnCanvas: {fileID: 0}
   docSpawnPos: {x: 0, y: -100, z: 0}
-  cargoList: []
+  cargoList:
+  - Minerais
+  - Nourriture
   allRacesData:
   - invalidDataParams:
       minWeight: 0
@@ -553,7 +555,17 @@ MonoBehaviour:
     real: {fileID: 21300000, guid: e31dea2016e61b04f91cf766ceafdb88, type: 3}
     enterSound: {fileID: 8300000, guid: e0fdadfd0c1694343b6de6e72467bf94, type: 3}
     deniedSound: {fileID: 8300000, guid: 261b045b27b28d24d94b16b882b6431c, type: 3}
-  planetsData: []
+  planetsData:
+  - planet: 0
+    icon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
+  - planet: 1
+    icon: {fileID: 21300000, guid: 5a6876a0bf10f184d9f7194e7fc7aed4, type: 3}
+  - planet: 2
+    icon: {fileID: 21300000, guid: 47873e752d558d74aadca9bec0ecb980, type: 3}
+  - planet: 3
+    icon: {fileID: 21300000, guid: 3538607bc685ae24591e54f8f578c912, type: 3}
+  - planet: 4
+    icon: {fileID: 21300000, guid: d2197d266441eae4d9f8a1f64241f538, type: 3}
   workerCardPercent: 100
   deliveryCardPercent: 20
   diplomaticLetterPercent: 7
