@@ -20,6 +20,9 @@ public enum DataType
     Agency,
     Cargo,
     Photo,
+    City, // (Diplomatic letter)
+    DiplomaticLetterCreationDate,
+    WeaponLicenseCategory
 }
 
 public class InspectionManager : MonoBehaviour
@@ -97,7 +100,7 @@ public class InspectionManager : MonoBehaviour
 
     string CheckIncoherenceWithoutRules(InspectionItem item1, InspectionItem item2)
     {
-        if (item1.info.type == item2.info.type)
+        if (item1.info.type == item2.info.type && item1.info.type != DataType.ExpirationDate)
         {
             if (item1.info.value != item2.info.value)
             {
@@ -140,6 +143,16 @@ public class InspectionManager : MonoBehaviour
                         else
                         {
                             return "Le poids est invalide.";
+                        }
+
+                    case DataType.Birthday:
+                        if (immigrantRandomizer.HasValidAge(raceItem.info.value, DataConversions.StringToDate(otherItem.info.value)))
+                        {
+                            return null;
+                        }
+                        else
+                        {
+                            return "L'âge est invalide.";
                         }
                 }
             }
@@ -209,5 +222,40 @@ public class InspectionManager : MonoBehaviour
         {
             GenerateNewImmigrant();
         }
+    }
+
+    public void AllowAccess()
+    {
+        if (currentImmigrant == null)
+            return;
+        
+        RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
+        currentImmigrant.anim.clip = raceData.allowedAnim;
+        currentImmigrant.anim.Play();
+
+        currentImmigrant.audio.clip = raceData.allowedAudio;
+        currentImmigrant.audio.Play();
+
+        OnImmigrantLeave();
+    }
+
+    public void DenyAccess()
+    {
+        if (currentImmigrant == null)
+            return;
+
+        RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
+        currentImmigrant.anim.clip = raceData.deniedAnim;
+        currentImmigrant.anim.Play();
+
+        currentImmigrant.audio.clip = raceData.deniedAudio;
+        currentImmigrant.audio.Play();
+
+        OnImmigrantLeave();
+    }
+
+    public void OnImmigrantLeave()
+    {
+        Destroy(currentImmigrant);
     }
 }

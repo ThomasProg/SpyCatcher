@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5010449762040298223}
   - component: {fileID: 5010449762040298220}
   - component: {fileID: 5010449762040298221}
+  - component: {fileID: 8901374632352072624}
   m_Layer: 5
   m_Name: DiplomaticLetter
   m_TagString: Untagged
@@ -138,6 +139,22 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &8901374632352072624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010449762040298211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7e615916d6cbd4abfda4d1f6588f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pName: {fileID: 0}
+  seal: {fileID: 0}
+  creationDate: {fileID: 0}
+  creationCity: {fileID: 0}
 --- !u!1001 &5584419732287020865
 PrefabInstance:
   m_ObjectHideFlags: 0

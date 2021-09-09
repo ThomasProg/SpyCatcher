@@ -5,8 +5,5 @@ using System;
 
 public class Rule : InspectionItem
 {
-    public String CheckIncoherence(InspectionItem item)
-    {
-        return null;
-    }
+    public virtual string CheckIncoherence(InspectionItem item) { return null; }
 }

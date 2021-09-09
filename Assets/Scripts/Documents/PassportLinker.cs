@@ -43,6 +43,23 @@ public class PassportLinker : MonoBehaviour
         planetSeal.Image = passport.planetSeal;
     }
 
+    public void SetTypes()
+    {
+        pName.info.type = DataType.Name;
+        planet.info.type = DataType.Planet;
+        race.info.type = DataType.Race;
+        weight.info.type = DataType.Weight;
+        height.info.type = DataType.Height;
+        sex.info.type = DataType.Sex;
+        birthdate.info.type = DataType.Birthday;
+        birthplace.info.type = DataType.Birthplace;
+        expirationDate.info.type = DataType.ExpirationDate;
+
+        planetIcon.info.type = DataType.Planet;
+        photo.info.type = DataType.Photo;
+        planetSeal.info.type = DataType.Planet;
+    }
+
     public void SetValues(Passport passport)
     {
         pName.info.value = passport.name;
@@ -63,6 +80,7 @@ public class PassportLinker : MonoBehaviour
     public void SetData(Passport passport)
     {
         SetText(passport);
+        SetTypes();
         SetValues(passport);
     }
 

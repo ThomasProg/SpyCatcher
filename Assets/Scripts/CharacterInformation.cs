@@ -8,6 +8,56 @@ public struct Date
     public int day;
     public int month;
     public int year;
+
+    public void RemoveYears(int nbYears)
+    {
+        year -= nbYears;
+    }
+
+    public void RemoveMonths(int nbMonths)
+    {
+        int nbMaxMonths = 12;
+        int nbYears = nbMonths / nbMaxMonths;
+        month = month - nbMonths % nbMaxMonths;
+        if (month <= 0)
+        {
+            month += nbMaxMonths;
+            nbYears++;
+        }
+        RemoveYears(nbYears);
+    }
+
+    public void RemoveDays(int nbDays)
+    {
+        int nbMaxDays = 28;
+        int nbMonths = nbDays / nbMaxDays;
+        day = day -  nbDays % nbMaxDays;
+        if (day <= 0)
+        {
+            day += nbMaxDays;
+            nbMonths++;
+        }
+        RemoveMonths(nbMonths);
+
+    }
+
+    public bool IsLessThan(Date another)
+    {
+        if (year < another.year)
+            return true;
+        if (year > another.year)
+            return false;
+
+        if (month < another.month)
+            return true;
+        if (month > another.month)
+            return false;
+
+        if (day < another.day)
+            return true;
+        //if (day > another.day)
+        return false;
+    }
 };
 
 [System.Serializable]
@@ -89,11 +139,22 @@ public class DataConversions
 
     public static T FromString<T>(string str)
     {
-        return (T) System.Enum.Parse(typeof(T), str, true); 
+        return (T)System.Enum.Parse(typeof(T), str, true);
     }
 
     public static int FromString(string str)
     {
         return int.Parse(str);
+    }
+
+
+    public static Date StringToDate(string str)
+    {
+        string[] s = str.Split('/');
+        Date newDate;
+        newDate.day = int.Parse(s[0]);
+        newDate.month = int.Parse(s[1]);
+        newDate.year = int.Parse(s[2]);
+        return newDate;
     }
 };

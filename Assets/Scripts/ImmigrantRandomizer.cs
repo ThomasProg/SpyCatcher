@@ -3,8 +3,32 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
+public struct AgencyData
+{
+    public string name;
+    public Sprite seal;
+    public string sign; // signature
+}
+
+
+[System.Serializable]
+public struct InvalidDataParams
+{
+    public int minWeight; // inclusive
+    public int maxWeight; // exclusive
+    public int minHeight; // inclusive
+    public int maxHeight; // exclusive
+    public Date minBirthday;
+    public Date maxBirthday;
+    public Date minExpirationDate;
+}
+
+
+[System.Serializable]
 public struct RaceData
 {
+    public InvalidDataParams invalidDataParams;
+
     public System.String race;
     public Date minBirthday;
     public Date maxBirthday;
@@ -12,18 +36,22 @@ public struct RaceData
     public List<string> lastNames;
     public Planet defaultPlanet;
     public Sprite planetsIcon;
+
     public int minWeight; // inclusive
     public int maxWeight; // exclusive
     public int minHeight; // inclusive
     public int maxHeight; // exclusive
+
     public List<string> possibleSexes;
     public List<string> cities; 
     public List<Sprite> photos;
+    //public List<Sprite> agencySeals;
+    public List<AgencyData> agencies;
     public Sprite seal;
 
-    public Animation enterAnim;
-    public Animation allowedAnim;
-    public Animation deniedAnim;
+    public AnimationClip enterAnim;
+    public AnimationClip allowedAnim;
+    public AnimationClip deniedAnim;
 
     public AudioClip enterAudio;
     public AudioClip allowedAudio;
@@ -56,14 +84,30 @@ public class ImmigrantRandomizer : MonoBehaviour
 
     [SerializeField]
     Date passportMaxExpirationDate;
+    [SerializeField]
+    Date workerCardMaxExpirationDate;
 
     [SerializeField]
     GameObject passportPrefab;
+    [SerializeField]
+    GameObject workerCardPrefab;
+    [SerializeField]
+    GameObject deliveryCardPrefab;
+    [SerializeField]
+    GameObject diplomaticLetterPrefab;
+    [SerializeField]
+    GameObject weaponLicensePrefab;
+
+    [SerializeField]
+    float errorPercent = 14;
 
     [SerializeField]
     GameObject docSpawnCanvas;
     [SerializeField]
     Vector3 docSpawnPos;
+
+    [SerializeField]
+    List<string> cargoList;
 
     [SerializeField]
     //Dictionary<Race, RaceData> allRacesData = new Dictionary<Race, RaceData>();
@@ -73,10 +117,10 @@ public class ImmigrantRandomizer : MonoBehaviour
 
     public List<CharacterPhoto> characterAndPhoto;
 
-    float workerCardRatio = 10f / 100;
-    float deliveryCardRatio = 10f / 100;
-    float diplomaticLetterRatio = 10f / 100;
-    float weaponLicenseRatio = 10f / 100;
+    [SerializeField] float workerCardPercent = 20;
+    [SerializeField] float deliveryCardPercent = 20;
+    [SerializeField] float diplomaticLetterPercent = 7;
+    [SerializeField] float weaponLicensePercent = 7;
 
     private void Start()
     {
@@ -86,7 +130,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         }
     }
 
-    RaceData GetRaceData(System.String race)
+    public RaceData GetRaceData(System.String race)
     {
         RaceData raceData;
         bool isFound = allRacesDataDic.TryGetValue(race, out raceData);
@@ -106,6 +150,13 @@ public class ImmigrantRandomizer : MonoBehaviour
         RaceData raceData = GetRaceData(race);
 
         return raceData.minHeight < height && height < raceData.maxHeight;
+    }
+
+    public bool HasValidAge(string race, Date birthday)
+    {
+        RaceData raceData = GetRaceData(race);
+
+        return raceData.maxBirthday.IsLessThan(birthday);
     }
 
     string GetRandomName(RaceData raceData)
@@ -179,12 +230,12 @@ public class ImmigrantRandomizer : MonoBehaviour
         return raceData.seal;
     }
 
-    Passport GetValidRandomPassport(System.String race, RaceData raceData)
+    Passport GetValidRandomPassport(RaceData raceData)
     {
         Passport passport = new Passport();
         passport.name = GetRandomName(raceData);
         passport.planet = GetRandomValidPlanet(raceData);
-        passport.race = race;
+        passport.race = raceData.race;
         passport.weight = GetRandomValidWeight(raceData);
         passport.height = GetRandomValidHeight(raceData);
         passport.sex = GetRandomSex(raceData);
@@ -203,6 +254,94 @@ public class ImmigrantRandomizer : MonoBehaviour
         return passport;
     }
 
+    AgencyData GetRandomAgency(RaceData raceData)
+    {
+        return raceData.agencies[Random.Range(0, raceData.agencies.Count)];
+    }
+
+    //Sprite GetRandomAgencySeal(RaceData raceData)
+    //{
+    //    return raceData.agencySeals[Random.Range(0, raceData.agencySeals.Count)];
+    //}
+
+    WorkerCard GetValidRandomWorkerCard(RaceData raceData, Passport passport, AgencyData agencyData)
+    {
+        WorkerCard workerCard = new WorkerCard();
+        workerCard.name = passport.name;
+        workerCard.planet = passport.planet;
+        workerCard.sex = passport.sex;
+        workerCard.birthdate = passport.birthdate;
+        workerCard.birthPlace = passport.birthPlace;
+        workerCard.expirationDate = GetRandomDate(currentDate, workerCardMaxExpirationDate);
+
+        workerCard.agencySeal = agencyData.seal;
+        workerCard.photo = passport.photo;
+
+        workerCard.linkerPrefab = workerCardPrefab;
+        docSpawnCanvas.transform.position = docSpawnPos;
+        workerCard.parent = docSpawnCanvas.transform;
+
+        return workerCard;
+    }
+
+    string GetRandomValidCargo(RaceData raceData)
+    {
+        return cargoList[Random.Range(0, cargoList.Count)];
+    }
+
+    DeliveryCard GetValidRandomDeliveryCard(RaceData raceData, Passport passport, AgencyData agencyData)
+    {
+        DeliveryCard deliveryCard = new DeliveryCard();
+        deliveryCard.name = passport.name;
+        deliveryCard.originPlanet = passport.planet;
+
+        deliveryCard.agency = agencyData.name;
+        deliveryCard.cargo = GetRandomValidCargo(raceData);
+        deliveryCard.signature = agencyData.sign;
+
+        deliveryCard.photo = passport.photo;
+
+        deliveryCard.linkerPrefab = deliveryCardPrefab;
+        docSpawnCanvas.transform.position = docSpawnPos;
+        deliveryCard.parent = docSpawnCanvas.transform;
+
+        return deliveryCard;
+    }
+
+    DiplomaticLetter GetValidRandomDiplomaticLetter(RaceData raceData, Passport passport, AgencyData agencyData)
+    {
+        DiplomaticLetter diplomaticLetter = new DiplomaticLetter();
+        diplomaticLetter.name = passport.name;
+        diplomaticLetter.seal = passport.planetSeal;
+        diplomaticLetter.creationDate = GetRandomDate(passport.birthdate, currentDate);
+        diplomaticLetter.creationCity = GetRandomPlace(raceData); // TODO : VERIFY VALIDITY
+
+        diplomaticLetter.linkerPrefab = diplomaticLetterPrefab;
+        docSpawnCanvas.transform.position = docSpawnPos;
+        diplomaticLetter.parent = docSpawnCanvas.transform;
+
+        return diplomaticLetter;
+    }
+
+    WeaponLicense GetValidRandomWeaponLicense(RaceData raceData, Passport passport, AgencyData agencyData)
+    {
+        WeaponLicense weaponLicense = new WeaponLicense();
+        weaponLicense.name = passport.name;
+        weaponLicense.birthdate = passport.birthdate;
+        weaponLicense.birthplace = passport.birthPlace;
+        weaponLicense.sex = passport.sex;
+        weaponLicense.expirationDate = GetRandomDate(passport.birthdate, currentDate);
+
+        weaponLicense.category = agencyData.name;
+        weaponLicense.photo = passport.photo;
+
+        weaponLicense.linkerPrefab = weaponLicensePrefab;
+        docSpawnCanvas.transform.position = docSpawnPos;
+        weaponLicense.parent = docSpawnCanvas.transform;
+
+        return weaponLicense;
+    }
+
     public T GetRandomEnum<T>()
     {
         System.Array values = System.Enum.GetValues(typeof(T));
@@ -214,13 +353,168 @@ public class ImmigrantRandomizer : MonoBehaviour
         return allRacesData[Random.Range(0, allRacesData.Count)].race;
     }
 
+    // Race relative
+    void SetInvalidHeight(RaceData raceData, Passport passport)
+    {
+        passport.height = Random.Range(raceData.invalidDataParams.minHeight, raceData.invalidDataParams.maxHeight);
+    }
+
+    // Race relative
+    void SetInvalidWeight(RaceData raceData, Passport passport)
+    {
+        passport.weight = Random.Range(raceData.invalidDataParams.minWeight, raceData.invalidDataParams.maxWeight);
+    }
+
+    // Race relative
+    Date GetInvalidBirthdate(RaceData raceData)
+    {
+        return GetRandomDate(raceData.invalidDataParams.minBirthday, raceData.invalidDataParams.maxBirthday);
+    }
+
+    Date GetInvalidExpirationDate(RaceData raceData)
+    {
+        Date max = currentDate;
+        max.RemoveDays(1);
+        return GetRandomDate(raceData.invalidDataParams.minExpirationDate, max);
+    }
+
+    void SetInvalidPassport(RaceData raceData, Passport passport)
+    {
+        int randomParameter = Random.Range(0, 4);
+        switch (randomParameter)
+        {
+            case 0:
+                SetInvalidWeight(raceData, passport);
+                break;
+            case 1:
+                SetInvalidHeight(raceData, passport);
+                break;
+            case 2:
+                passport.birthdate = GetInvalidBirthdate(raceData);
+                break;
+            case 3:
+                passport.expirationDate = GetInvalidExpirationDate(raceData);
+                break;
+        }
+    }
+
+    string GetRandomInvalidName(RaceData raceData, string currentName)
+    {
+        Debug.Assert(raceData.firstNames.Count > 1);
+        string invalidName;
+        do
+        {
+            invalidName = GetRandomName(raceData);
+        } while (invalidName == currentName);
+        return invalidName;
+    }
+
+    Planet GetRandomInvalidPlanet(RaceData raceData, Planet currentPlanet)
+    {
+        Debug.Assert(allRacesData.Count > 1);
+        int index = Random.Range(1, allRacesData.Count);
+        if (allRacesData[index].defaultPlanet == currentPlanet)
+            index = 0;
+        return allRacesData[index].defaultPlanet;
+    }
+
+    RaceData GetRandomInvalidRaceData(string currentRace)
+    {
+        Debug.Assert(allRacesData.Count > 1);
+        int index = Random.Range(1, allRacesData.Count);
+        if (allRacesData[index].race == currentRace)
+            index = 0;
+        return allRacesData[index];
+    }
+
+    string GetInvalidRandomSex(RaceData raceData, string currentSex)
+    {
+        Debug.Assert(raceData.possibleSexes.Count > 1);
+        int index = Random.Range(1, raceData.possibleSexes.Count);
+        if (raceData.possibleSexes[index] == currentSex)
+            index = 0;
+        return raceData.possibleSexes[index];
+    }
+
+    void SetInvalidWorkerCard(RaceData raceData, WorkerCard workerCard)
+    {
+        int max = 8;
+        if (raceData.possibleSexes.Count == 1)
+            max = 7;
+
+        int randomParameter = Random.Range(0, max);
+        switch (randomParameter)
+        {
+            case 0:
+                workerCard.name = GetRandomInvalidName(raceData, workerCard.name);
+                break;
+            case 1:
+                workerCard.planet = GetRandomInvalidPlanet(raceData, raceData.defaultPlanet);
+                break;
+            case 2:
+                workerCard.birthdate = GetInvalidBirthdate(raceData);
+                break;
+            case 3:
+                workerCard.expirationDate = GetInvalidExpirationDate(raceData);
+                break;
+            case 4:
+                workerCard.birthPlace = GetRandomPlace(GetRandomInvalidRaceData(raceData.race));
+                break;
+            case 5:
+                workerCard.photo = GetRandomPhoto(GetRandomInvalidRaceData(raceData.race));
+                break;
+            case 6:
+                workerCard.agencySeal = GetRandomAgency(GetRandomInvalidRaceData(raceData.race)).seal;
+                break;
+            case 7:
+                workerCard.sex = GetInvalidRandomSex(raceData, workerCard.sex);
+                break;
+        }
+    }
+
     public void SetRandomData(Immigrant immigrant)
     {
         //Init();
-        System.String race = GetRandomRace();
+        string race = GetRandomRace();
         RaceData raceData = GetRaceData(race);
-        immigrant.documents.Add(GetValidRandomPassport(race, raceData));
 
-        
+        immigrant.race = race;
+
+        Passport passport = GetValidRandomPassport(raceData);
+        immigrant.documents.Add(passport);
+
+        AgencyData agencyData = GetRandomAgency(raceData);
+
+        if (Random.Range(0, 100) < errorPercent)
+        {
+            SetInvalidPassport(raceData, passport);
+        }
+
+        if (Random.Range(0, 100) < workerCardPercent)
+        {
+            WorkerCard workerCard = GetValidRandomWorkerCard(raceData, passport, agencyData);
+
+            if (Random.Range(0, 100) < errorPercent)
+            {
+                SetInvalidWorkerCard(raceData, workerCard);
+            }
+
+            immigrant.documents.Add(workerCard);
+        }
+
+        if (Random.Range(0, 100) < deliveryCardPercent)
+        {
+            immigrant.documents.Add(GetValidRandomDeliveryCard(raceData, passport, agencyData));
+        }
+
+        if (Random.Range(0, 100) < diplomaticLetterPercent)
+        {
+            immigrant.documents.Add(GetValidRandomDiplomaticLetter(raceData, passport, agencyData));
+        }
+
+        if (Random.Range(0, 100) < diplomaticLetterPercent)
+        {
+            immigrant.documents.Add(GetValidRandomWeaponLicense(raceData, passport, agencyData));
+        }
     }
 }

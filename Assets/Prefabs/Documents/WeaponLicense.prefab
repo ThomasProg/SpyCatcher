@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5411880434899400932}
   - component: {fileID: 5411880434899400935}
   - component: {fileID: 5411880434899400934}
+  - component: {fileID: 6068890461984879699}
   m_Layer: 5
   m_Name: WeaponLicense
   m_TagString: Untagged
@@ -140,6 +141,25 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+--- !u!114 &6068890461984879699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5411880434899400936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d38c4c3ee912754588048c1258befed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pName: {fileID: 0}
+  birthdate: {fileID: 0}
+  sex: {fileID: 0}
+  expirationDate: {fileID: 0}
+  birthplace: {fileID: 0}
+  category: {fileID: 0}
+  photo: {fileID: 0}
 --- !u!1 &7863038269624185930
 GameObject:
   m_ObjectHideFlags: 0
