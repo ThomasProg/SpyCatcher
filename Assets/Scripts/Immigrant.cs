@@ -120,8 +120,15 @@ public class Immigrant : MonoBehaviour
     public Sprite photo;
     public Animator anim;
     public AudioSource audioSource;
+    public AudioSource hologramsSource;
 
     public bool isSpy = false;
+
+    [SerializeField]
+    AudioClip docCreationSound;
+    [SerializeField]
+    AudioClip docRemoveSound;
+
 
     public void SetPhoto(Sprite newPhoto)
     {
@@ -139,6 +146,9 @@ public class Immigrant : MonoBehaviour
         {
             doc.InstantiateDocument();
         }
+
+        hologramsSource.clip = docCreationSound;
+        hologramsSource.Play();
     }
 
     public void RemoveDocuments()
@@ -147,6 +157,9 @@ public class Immigrant : MonoBehaviour
         {
             Destroy(doc.linkerInstance);
         }
+
+        hologramsSource.clip = docRemoveSound;
+        hologramsSource.Play();
     }
 
     private void Awake()
@@ -154,7 +167,9 @@ public class Immigrant : MonoBehaviour
         creationTime = Time.time;
 
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
+        AudioSource[] sources = GetComponents<AudioSource>();
+        audioSource = sources[0];
+        hologramsSource = sources[1];
         image = GetComponent<UnityEngine.UI.Image>();
     }
 
