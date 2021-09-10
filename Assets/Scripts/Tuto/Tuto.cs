@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(CanvasGroup))]
 public class Tuto : MonoBehaviour
@@ -18,6 +19,8 @@ public class Tuto : MonoBehaviour
     [SerializeField]
     InspectionManager inspectionManager;
 
+    Coroutine coroutine;
+
 
     private void Awake()
     {
@@ -26,7 +29,32 @@ public class Tuto : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(FadeOut());
+        coroutine = StartCoroutine(FadeOut());
+
+        EventTrigger eventTrigger = GetComponent<EventTrigger>();
+        AddCallback(eventTrigger, EventTriggerType.PointerDown, ForceStop);
+    }
+
+    void AddCallback(EventTrigger eventTrigger, EventTriggerType triggerType, UnityAction<BaseEventData> action)
+    {
+        if (eventTrigger == null)
+        {
+            Debug.LogWarning("Buttons should have an EventTrigger.");
+            return;
+        }
+
+        List<EventTrigger.Entry> triggers = eventTrigger.triggers;
+        EventTrigger.Entry clickEventHandler = triggers.Find(
+            t => t.eventID == triggerType
+        );
+        if (clickEventHandler == null)
+        {
+            clickEventHandler = new EventTrigger.Entry();
+            clickEventHandler.eventID = triggerType;
+            triggers.Add(clickEventHandler);
+            eventTrigger.triggers = triggers;
+        }
+        clickEventHandler.callback.AddListener(action);
     }
 
     IEnumerator FadeOut()
@@ -43,4 +71,11 @@ public class Tuto : MonoBehaviour
         Destroy(image.gameObject);
     }
 
+
+    void ForceStop(BaseEventData e)
+    {
+        StopCoroutine(coroutine);
+        inspectionManager.GenerateNewImmigrant();
+        Destroy(image.gameObject);
+    }
 }
