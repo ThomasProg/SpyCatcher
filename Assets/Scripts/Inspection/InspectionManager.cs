@@ -293,10 +293,10 @@ public class InspectionManager : MonoBehaviour
     {
         news.dateRule.CurrentDate = immigrantRandomizer.currentDate;
 
-        if (currentImmigrant == null)
-        {
-            GenerateNewImmigrant();
-        }
+        //if (currentImmigrant == null)
+        //{
+        //    GenerateNewImmigrant();
+        //}
     }
 
     bool lockButtons = false;
