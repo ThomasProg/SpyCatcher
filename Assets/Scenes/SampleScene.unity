@@ -2459,6 +2459,7 @@ GameObject:
   - component: {fileID: 1707049398}
   - component: {fileID: 1707049400}
   - component: {fileID: 1707049399}
+  - component: {fileID: 1707049401}
   m_Layer: 5
   m_Name: Lasers
   m_TagString: Untagged
@@ -2522,6 +2523,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707049397}
   m_CullTransparentMesh: 0
+--- !u!114 &1707049401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707049397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8a4fa87a0b7914fb64ba1e8fea34e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laserSprites:
+  - {fileID: 21300000, guid: 1d1d7fd17f0b8ff4c9f904f01b03c036, type: 3}
+  - {fileID: 21300000, guid: f0d9392b6711b9847a67cd0ac7cd2410, type: 3}
+  - {fileID: 21300000, guid: 24688f2d3279b054f8a52f0af59072c9, type: 3}
+  - {fileID: 21300000, guid: f728a11c8acd7da47b03d3fb66e8fbbe, type: 3}
+  - {fileID: 21300000, guid: d3c397b05c65342429f2dedc4ac1f563, type: 3}
+  - {fileID: 21300000, guid: 142045ac0dc1f3a4494c90ff0d46ac54, type: 3}
+  laserIdleSprites:
+  - {fileID: 21300000, guid: c6a3e381d2343d84b9a1e1343572604f, type: 3}
+  - {fileID: 21300000, guid: f413b7ed028cedd45bed02c6fb9c6129, type: 3}
+  spriteDelay: 0.1
 --- !u!1 &1907509802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2780,7 +2804,7 @@ PrefabInstance:
         type: 3}
       propertyPath: lasers
       value: 
-      objectReference: {fileID: 1707049397}
+      objectReference: {fileID: 1707049401}
     - target: {fileID: 1143832306990336802, guid: 636b7a4ed06659d4086e237e9df3799a,
         type: 3}
       propertyPath: scoreText

@@ -57,7 +57,7 @@ public class InspectionManager : MonoBehaviour
     News news;
 
     [SerializeField]
-    GameObject lasers;
+    Lasers lasers;
 
     public int CurrentScore
     {
@@ -329,7 +329,7 @@ public class InspectionManager : MonoBehaviour
         if (lockButtons || currentImmigrant == null)
             return;
 
-        lasers.SetActive(true);
+        lasers.ActivateLasers();
 
         if (currentImmigrant.isSpy)
         {
@@ -361,7 +361,7 @@ public class InspectionManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        lasers.SetActive(false);
+        lasers.DeactivateLasers();
 
         yield return new WaitForSeconds(0.5f);
 
