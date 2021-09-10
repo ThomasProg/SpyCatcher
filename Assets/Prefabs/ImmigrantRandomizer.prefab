@@ -448,7 +448,7 @@ MonoBehaviour:
     - Niko
     lastNames: []
     defaultPlanet: 0
-    planetsIcon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
+    planetsIcon: {fileID: 21300000, guid: da30b0715ffdd7044b51e3a6c3f1ed36, type: 3}
     minWeight: 60
     maxWeight: 180
     minHeight: 170
