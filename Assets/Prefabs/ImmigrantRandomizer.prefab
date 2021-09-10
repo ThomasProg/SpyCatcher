@@ -812,15 +812,19 @@ MonoBehaviour:
   planetsData:
   - planet: 0
     icon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
+    seal: {fileID: 21300000, guid: e5ad391abad41e34ba157e057f928fd9, type: 3}
   - planet: 1
     icon: {fileID: 21300000, guid: 5a6876a0bf10f184d9f7194e7fc7aed4, type: 3}
+    seal: {fileID: 21300000, guid: c32259cca8d4356409bef83b4f95ca0e, type: 3}
   - planet: 2
     icon: {fileID: 21300000, guid: 47873e752d558d74aadca9bec0ecb980, type: 3}
+    seal: {fileID: 21300000, guid: f79d76e46728d7b45bb407a15e1498de, type: 3}
   - planet: 3
     icon: {fileID: 21300000, guid: 3538607bc685ae24591e54f8f578c912, type: 3}
+    seal: {fileID: 21300000, guid: def71e69873600740bc12f20e89b801c, type: 3}
   - planet: 4
     icon: {fileID: 21300000, guid: d2197d266441eae4d9f8a1f64241f538, type: 3}
+    seal: {fileID: 21300000, guid: 0db070dafa571ef4e9b8841e951ef302, type: 3}
   workerCardPercent: 20
   deliveryCardPercent: 20
-  diplomaticLetterPercent: 0
   weaponLicensePercent: 20
