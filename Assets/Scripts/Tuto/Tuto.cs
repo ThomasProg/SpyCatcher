@@ -40,6 +40,7 @@ public class Tuto : MonoBehaviour
         }
 
         inspectionManager.GenerateNewImmigrant();
+        Destroy(image.gameObject);
     }
 
 }
