@@ -20,6 +20,8 @@ public class Lasers : MonoBehaviour
 
     Coroutine coroutine;
 
+    AudioSource audioSource;
+
     IEnumerator LasersAnim()
     {
         foreach (Sprite sprite in laserSprites)
@@ -54,6 +56,7 @@ public class Lasers : MonoBehaviour
     void Awake()
     {
         image = GetComponent<Image>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ActivateLasers()
@@ -62,6 +65,7 @@ public class Lasers : MonoBehaviour
         if (coroutine != null)
             StopCoroutine(coroutine);
         coroutine = StartCoroutine(LasersAnim());
+        audioSource.Play();
     }
 
     public void DeactivateLasers()
