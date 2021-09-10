@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.7, y: -65.5}
-  m_SizeDelta: {x: 20, y: 20}
+  m_AnchoredPosition: {x: -55.99, y: -63.567}
+  m_SizeDelta: {x: 28.578773, y: 23.866962}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3868402302524777518
 CanvasRenderer:
@@ -65,8 +65,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 61cb0f5b4205cc44f91da58cda23a486, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -93,7 +93,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -104,9 +104,9 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 8934f6b8772d1d74abe96bafdee37395, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: e81438af536ba4743aded9b3844f90b3, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -244,8 +244,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 51.8, y: -67.49}
-  m_SizeDelta: {x: 19.00747, y: 16.029007}
+  m_AnchoredPosition: {x: 56.45, y: -63.569}
+  m_SizeDelta: {x: 28.307777, y: 23.87196}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &128903457335694102
 CanvasRenderer:
@@ -302,7 +302,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -313,9 +313,9 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 4bcfd4eb923aaac4f9e257781ddf61dc, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300000, guid: ebe7b9e4ec83b3b4cb61792ec457a5a0, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -530,8 +530,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 68a2c4993840d1246becfd70c10dd3ba, type: 3}
   - {fileID: 21300000, guid: 75110f567dbd0bc4e9aa13738918553f, type: 3}
   - {fileID: 21300000, guid: 353afb3007344fd4ebd82194e9f73a69, type: 3}
-  - {fileID: 21300000, guid: 75110f567dbd0bc4e9aa13738918553f, type: 3}
-  - {fileID: 21300000, guid: 75110f567dbd0bc4e9aa13738918553f, type: 3}
+  - {fileID: 21300000, guid: c3124297c79baf74e9a8f36d546c8afc, type: 3}
+  - {fileID: 21300000, guid: d96b762604460c247b126bd1a6f1c13a, type: 3}
   - {fileID: 21300000, guid: 75110f567dbd0bc4e9aa13738918553f, type: 3}
 --- !u!1 &7956955566193126672
 GameObject:
@@ -577,6 +577,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5146015458086840567}
     m_Modifications:
+    - target: {fileID: 3734670377476513880, guid: ae2283a0c1fe2164ab67e5753649e7ef,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734670377476513880, guid: ae2283a0c1fe2164ab67e5753649e7ef,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3734670377476513880, guid: ae2283a0c1fe2164ab67e5753649e7ef,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3734670377476513880, guid: ae2283a0c1fe2164ab67e5753649e7ef,
         type: 3}
       propertyPath: m_FontData.m_Font
