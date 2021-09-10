@@ -56,6 +56,9 @@ public class InspectionManager : MonoBehaviour
     [SerializeField]
     News news;
 
+    [SerializeField]
+    GameObject lasers;
+
     public int CurrentScore
     {
         get { return currentScore; }
@@ -326,6 +329,8 @@ public class InspectionManager : MonoBehaviour
         if (lockButtons || currentImmigrant == null)
             return;
 
+        lasers.SetActive(true);
+
         if (currentImmigrant.isSpy)
         {
             CurrentScore += 1;
@@ -354,7 +359,11 @@ public class InspectionManager : MonoBehaviour
         currentImmigrant.RemoveDocuments();
         Destroy(currentImmigrant.gameObject);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+
+        lasers.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
 
         GenerateNewImmigrant();
         lockButtons = false;
