@@ -163,4 +163,10 @@ public class DataConversions
         InspectionManager inspectionManager = GameObject.Find("InspectionManager").GetComponent<InspectionManager>();
         return inspectionManager.immigrantRandomizer.GetPlanetData(p).icon;
     }
+
+    public static Sprite PlanetToSeal(Planet p)
+    {
+        InspectionManager inspectionManager = GameObject.Find("InspectionManager").GetComponent<InspectionManager>();
+        return inspectionManager.immigrantRandomizer.GetPlanetData(p).seal;
+    }
 };

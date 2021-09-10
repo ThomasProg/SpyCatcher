@@ -29,7 +29,8 @@ public class Passport : Document
 
     public Planet planetIcon;
     public Sprite photo;
-    public Sprite planetSeal;
+    //public Sprite planetSeal;
+    public Planet planetSeal;
 
     public override void InstantiateDocument()
     {

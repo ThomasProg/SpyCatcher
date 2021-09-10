@@ -40,7 +40,7 @@ public class PassportLinker : MonoBehaviour
 
         planetIcon.Image = DataConversions.ToSprite(passport.planetIcon);
         photo.Image = passport.photo;
-        planetSeal.Image = passport.planetSeal;
+        planetSeal.Image = DataConversions.PlanetToSeal(passport.planetSeal);
     }
 
     public void SetTypes()

@@ -80,6 +80,7 @@ public struct PlanetData
 {
     public Planet planet;
     public Sprite icon;
+    public Sprite seal;
 };
 
 
@@ -133,7 +134,7 @@ public class ImmigrantRandomizer : MonoBehaviour
 
     [SerializeField] float workerCardPercent = 20;
     [SerializeField] float deliveryCardPercent = 20;
-    [SerializeField] float diplomaticLetterPercent = 7;
+    //[SerializeField] float diplomaticLetterPercent = 7;
     [SerializeField] float weaponLicensePercent = 7;
 
     private void Awake()
@@ -289,7 +290,7 @@ public class ImmigrantRandomizer : MonoBehaviour
         passport.expirationDate = GetRandomDate(currentDate, passportMaxExpirationDate);
 
         passport.planetIcon = passport.planet;
-        passport.planetSeal = GetValidSeal(raceData);
+        passport.planetSeal = passport.planet; // GetValidSeal(raceData);
         passport.photo = GetRandomPhoto(raceData);
 
         passport.linkerPrefab = passportPrefab;
@@ -355,20 +356,20 @@ public class ImmigrantRandomizer : MonoBehaviour
         return deliveryCard;
     }
 
-    DiplomaticLetter GetValidRandomDiplomaticLetter(RaceData raceData, Passport passport, AgencyData agencyData)
-    {
-        DiplomaticLetter diplomaticLetter = new DiplomaticLetter();
-        diplomaticLetter.name = passport.name;
-        diplomaticLetter.seal = passport.planetSeal;
-        diplomaticLetter.creationDate = GetRandomDate(passport.birthdate, currentDate);
-        diplomaticLetter.creationCity = GetRandomPlace(raceData); // TODO : VERIFY VALIDITY
+    //DiplomaticLetter GetValidRandomDiplomaticLetter(RaceData raceData, Passport passport, AgencyData agencyData)
+    //{
+    //    DiplomaticLetter diplomaticLetter = new DiplomaticLetter();
+    //    diplomaticLetter.name = passport.name;
+    //    diplomaticLetter.seal = passport.planetSeal;
+    //    diplomaticLetter.creationDate = GetRandomDate(passport.birthdate, currentDate);
+    //    diplomaticLetter.creationCity = GetRandomPlace(raceData); // TODO : VERIFY VALIDITY
 
-        diplomaticLetter.linkerPrefab = diplomaticLetterPrefab;
-        docSpawnCanvas.transform.position = docSpawnPos;
-        diplomaticLetter.parent = docSpawnCanvas.transform;
+    //    diplomaticLetter.linkerPrefab = diplomaticLetterPrefab;
+    //    docSpawnCanvas.transform.position = docSpawnPos;
+    //    diplomaticLetter.parent = docSpawnCanvas.transform;
 
-        return diplomaticLetter;
-    }
+    //    return diplomaticLetter;
+    //}
 
     WeaponLicense GetValidRandomWeaponLicense(RaceData raceData, Passport passport, AgencyData agencyData)
     {
