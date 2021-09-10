@@ -165,15 +165,15 @@ MonoBehaviour:
     - Shrouxe
     photos:
     - {fileID: 21300000, guid: 49e958cb688a28c4ab52fdf8306a8e18, type: 3}
-    - {fileID: 21300000, guid: 76a4c2ee89bd5df40931b6619563ebca, type: 3}
-    - {fileID: 21300000, guid: fe1a4d893e259db4ab3cb1ad06cac4d2, type: 3}
-    - {fileID: 21300000, guid: b3ad4c221fac7b643b64011356199161, type: 3}
-    - {fileID: 21300000, guid: c66e45866ea1730478d80cdfec78e3d8, type: 3}
+    - {fileID: 21300000, guid: 25e06fb4e8d936346bc8704b9e6c9bef, type: 3}
+    - {fileID: 21300000, guid: 7a6b7ae4af478f54f876bbb1c854f839, type: 3}
+    - {fileID: 21300000, guid: 4a17024733e4fa54a8af0c4455f3d5db, type: 3}
+    - {fileID: 21300000, guid: ed93b73e891511e48875322add0b01c7, type: 3}
     agencies:
     - name: HumanAgency
       seal: {fileID: 21300000, guid: 22a876decfbdd434abdc86df9da0e6c2, type: 3}
       sign: HumanAgency
-    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
+    seal: {fileID: 21300000, guid: e5ad391abad41e34ba157e057f928fd9, type: 3}
     enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
@@ -253,7 +253,7 @@ MonoBehaviour:
     - name: 
       seal: {fileID: 21300000, guid: 0db070dafa571ef4e9b8841e951ef302, type: 3}
       sign: 
-    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
+    seal: {fileID: 21300000, guid: c32259cca8d4356409bef83b4f95ca0e, type: 3}
     enterAnim: {fileID: 7400000, guid: 1eb908539fb82c846bd33ca0b3fc0832, type: 2}
     allowedAnim: {fileID: 7400000, guid: 780e971427c3cd248b718a3d843852fd, type: 2}
     deniedAnim: {fileID: 7400000, guid: 780e971427c3cd248b718a3d843852fd, type: 2}
@@ -325,7 +325,7 @@ MonoBehaviour:
     - name: 
       seal: {fileID: 21300000, guid: 6b9c9d437ea45124eb408839724cc9ab, type: 3}
       sign: 
-    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
+    seal: {fileID: 21300000, guid: f79d76e46728d7b45bb407a15e1498de, type: 3}
     enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
     allowedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
     deniedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
@@ -397,7 +397,7 @@ MonoBehaviour:
     - name: 
       seal: {fileID: 21300000, guid: def71e69873600740bc12f20e89b801c, type: 3}
       sign: 
-    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
+    seal: {fileID: 21300000, guid: 0db070dafa571ef4e9b8841e951ef302, type: 3}
     enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
@@ -484,7 +484,7 @@ MonoBehaviour:
     - name: 
       seal: {fileID: 21300000, guid: f79d76e46728d7b45bb407a15e1498de, type: 3}
       sign: 
-    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
+    seal: {fileID: 21300000, guid: e5ad391abad41e34ba157e057f928fd9, type: 3}
     enterAnim: {fileID: 7400000, guid: 76a7bb51af1bbff43af5c84c1d0124e8, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
@@ -549,7 +549,7 @@ MonoBehaviour:
     - name: 
       seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
       sign: 
-    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
+    seal: {fileID: 21300000, guid: f79d76e46728d7b45bb407a15e1498de, type: 3}
     enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
@@ -620,6 +620,75 @@ MonoBehaviour:
       seal: {fileID: 21300000, guid: 739a61753d7bae242b1ae9ca0154b9b9, type: 3}
       sign: 
     seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
+    enterAnim: {fileID: 7400000, guid: 76a7bb51af1bbff43af5c84c1d0124e8, type: 2}
+    allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
+    deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
+  - invalidDataParams:
+      minWeight: 0
+      maxWeight: 0
+      minHeight: 0
+      maxHeight: 0
+      minBirthday:
+        day: 0
+        month: 0
+        year: 0
+      maxBirthday:
+        day: 0
+        month: 0
+        year: 0
+      minExpirationDate:
+        day: 0
+        month: 0
+        year: 0
+      minDocCreationDate:
+        day: 0
+        month: 0
+        year: 0
+      maxDocCreationDate:
+        day: 0
+        month: 0
+        year: 0
+    race: Parasites
+    minBirthday:
+      day: 1
+      month: 1
+      year: 2400
+    maxBirthday:
+      day: 1
+      month: 1
+      year: 2452
+    firstNames:
+    - Blop
+    - Blurp
+    - Blourp
+    - Wurp
+    - Warp
+    - Wapiti
+    - Bibourp
+    - Lourp
+    lastNames: []
+    defaultPlanet: 1
+    planetsIcon: {fileID: 21300000, guid: 5a6876a0bf10f184d9f7194e7fc7aed4, type: 3}
+    minWeight: 160
+    maxWeight: 200
+    minHeight: 60
+    maxHeight: 100
+    possibleSexes:
+    - NB
+    cities:
+    - Nyx
+    - Slip
+    - Kroa
+    - Vioni
+    - Muna
+    photos:
+    - {fileID: 21300000, guid: 8ce2cd1f974923249b51d05896e610a3, type: 3}
+    - {fileID: 21300000, guid: ddabddc4e0596b7418294f77808870b1, type: 3}
+    agencies:
+    - name: 
+      seal: {fileID: 21300000, guid: 739a61753d7bae242b1ae9ca0154b9b9, type: 3}
+      sign: 
+    seal: {fileID: 21300000, guid: 0db070dafa571ef4e9b8841e951ef302, type: 3}
     enterAnim: {fileID: 7400000, guid: 76a7bb51af1bbff43af5c84c1d0124e8, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
@@ -716,22 +785,30 @@ MonoBehaviour:
     real: {fileID: 21300000, guid: 3e8fa25b39ef0fe4383ffed3b74653a1, type: 3}
     enterSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
     deniedSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
-  - photo: {fileID: 21300000, guid: 76a4c2ee89bd5df40931b6619563ebca, type: 3}
+  - photo: {fileID: 21300000, guid: 25e06fb4e8d936346bc8704b9e6c9bef, type: 3}
     real: {fileID: 21300000, guid: f9e256580b3df054b9f6a15b2340da82, type: 3}
     enterSound: {fileID: 8300000, guid: c7a0366fedc5fd04aa8fbc3539c5f436, type: 3}
     deniedSound: {fileID: 8300000, guid: 139ae598714621441bccdf657b4458da, type: 3}
-  - photo: {fileID: 21300000, guid: fe1a4d893e259db4ab3cb1ad06cac4d2, type: 3}
+  - photo: {fileID: 21300000, guid: 7a6b7ae4af478f54f876bbb1c854f839, type: 3}
     real: {fileID: 21300000, guid: 1060f99aa67db694785e192b98924751, type: 3}
     enterSound: {fileID: 8300000, guid: 4b7b4b8e331ef6b4382e5d93a1aa5c0f, type: 3}
     deniedSound: {fileID: 8300000, guid: 0b3c99ef5ef40a14499e5778087720e8, type: 3}
-  - photo: {fileID: 21300000, guid: b3ad4c221fac7b643b64011356199161, type: 3}
+  - photo: {fileID: 21300000, guid: 4a17024733e4fa54a8af0c4455f3d5db, type: 3}
     real: {fileID: 21300000, guid: 95dd77346d80ea24585dd49a5538581c, type: 3}
     enterSound: {fileID: 8300000, guid: 5efd6905552a8f64abcbae744b069094, type: 3}
     deniedSound: {fileID: 8300000, guid: c032da26d10aba644bb73f8b42c38b94, type: 3}
-  - photo: {fileID: 21300000, guid: c66e45866ea1730478d80cdfec78e3d8, type: 3}
+  - photo: {fileID: 21300000, guid: ed93b73e891511e48875322add0b01c7, type: 3}
     real: {fileID: 21300000, guid: 942eb138f5c953a4388e745f03143870, type: 3}
     enterSound: {fileID: 8300000, guid: 1666933f0d70fae498105891f6b6323d, type: 3}
     deniedSound: {fileID: 8300000, guid: f0f2187cebd55874ea58b79aeebbc8d0, type: 3}
+  - photo: {fileID: 21300000, guid: 8ce2cd1f974923249b51d05896e610a3, type: 3}
+    real: {fileID: 21300000, guid: d1239507f2df11a4c9cca1a163d0ffe4, type: 3}
+    enterSound: {fileID: 8300000, guid: 75213a79208bc554ea6e87276668fd2c, type: 3}
+    deniedSound: {fileID: 8300000, guid: 75213a79208bc554ea6e87276668fd2c, type: 3}
+  - photo: {fileID: 21300000, guid: ddabddc4e0596b7418294f77808870b1, type: 3}
+    real: {fileID: 21300000, guid: 7928651966f180644b5fbce727a68b0e, type: 3}
+    enterSound: {fileID: 8300000, guid: 75213a79208bc554ea6e87276668fd2c, type: 3}
+    deniedSound: {fileID: 8300000, guid: 75213a79208bc554ea6e87276668fd2c, type: 3}
   planetsData:
   - planet: 0
     icon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
