@@ -4,7 +4,20 @@ using UnityEngine;
 
 public class DateRule : Rule
 {
-    public Date currentDate;
+    [SerializeField] Date currentDate;
+
+    public Date CurrentDate
+    {
+        get
+        {
+            return currentDate;
+        }
+        set
+        {
+            currentDate = value;
+            Text = DataConversions.ToString(currentDate);
+        }
+    }
 
     public override string CheckIncoherence(InspectionItem item)
     {

@@ -10,6 +10,7 @@ public class WeaponLicenseLinker : MonoBehaviour
     [SerializeField] InspectionItem expirationDate;
     [SerializeField] InspectionItem birthplace;
     [SerializeField] InspectionItem photo;
+    [SerializeField] InspectionItem planetIcon;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class WeaponLicenseLinker : MonoBehaviour
         birthplace.Text = weaponLicense.birthplace;
 
         photo.Image = weaponLicense.photo;
+        planetIcon.Image = DataConversions.ToSprite(weaponLicense.originPlanet);
     }
 
     public void SetTypes()
@@ -36,6 +38,7 @@ public class WeaponLicenseLinker : MonoBehaviour
         expirationDate.info.type = DataType.ExpirationDate;
 
         photo.info.type = DataType.Photo;
+        planetIcon.info.type = DataType.Planet;
     }
 
     public void SetValues(WeaponLicense weaponLicense)
@@ -47,6 +50,7 @@ public class WeaponLicenseLinker : MonoBehaviour
         expirationDate.info.value = DataConversions.ToString(weaponLicense.expirationDate);
 
         photo.info.value = DataConversions.ToString(weaponLicense.photo);
+        planetIcon.info.value = DataConversions.ToString(weaponLicense.originPlanet);
     }
 
     public void SetData(WeaponLicense weaponLicense)

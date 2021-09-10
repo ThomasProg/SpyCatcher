@@ -52,15 +52,19 @@ public class MyDragScript : MonoBehaviour
     {
         if (isDragged /*&& IsInDraggableArea(Input.mousePosition)*/)
         {
-            transform.position = Input.mousePosition; 
+            transform.position = Input.mousePosition + delta; 
         }
     }
+
+    Vector3 delta;
 
     public void OnMouseDown()
     {
         lastPosition = image.transform.position;
         isDragged = true;
         dragAndDropManager.SetPriorityOrderOnTop(this);
+
+        delta = transform.position - Input.mousePosition;
     }
 
     bool IsPointInDraggableArea(Vector3 point)

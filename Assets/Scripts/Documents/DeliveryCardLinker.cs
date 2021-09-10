@@ -9,6 +9,7 @@ public class DeliveryCardLinker : MonoBehaviour
     [SerializeField] InspectionItem agency;
     [SerializeField] InspectionItem cargo;
     [SerializeField] InspectionItem originPlanet;
+    [SerializeField] InspectionItem expirationDate;
     //[SerializeField] InspectionItem signature;
 
 
@@ -24,6 +25,7 @@ public class DeliveryCardLinker : MonoBehaviour
         agency.Text = deliveryCard.agency;
         cargo.Text = deliveryCard.cargo;
         originPlanet.Text= DataConversions.ToString(deliveryCard.originPlanet);
+        expirationDate.Text = DataConversions.ToString(deliveryCard.expirationDate);
         //signature.Text = deliveryCard.signature;
     }
 
@@ -34,6 +36,7 @@ public class DeliveryCardLinker : MonoBehaviour
         agency.info.type = DataType.Agency;
         cargo.info.type = DataType.Cargo;
         originPlanet.info.type = DataType.Planet;
+        expirationDate.info.type = DataType.ExpirationDate;
         //signature.info.type = DataType.Agency;
     }
 
@@ -44,6 +47,7 @@ public class DeliveryCardLinker : MonoBehaviour
         agency.info.value = deliveryCard.agency;
         cargo.info.value = deliveryCard.cargo;
         originPlanet.info.value = DataConversions.ToString(deliveryCard.originPlanet);
+        expirationDate.info.value = DataConversions.ToString(deliveryCard.expirationDate);
         //signature.info.value = deliveryCard.signature;
     }
 

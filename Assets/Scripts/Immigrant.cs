@@ -65,6 +65,7 @@ public class DeliveryCard : Document
     public string agency;
     public string cargo;
     public Planet originPlanet;
+    public Date expirationDate;
     //public string signature;
 
     public override void InstantiateDocument()

@@ -57,9 +57,9 @@ MonoBehaviour:
     month: 12
     year: 2454
   workerCardMaxExpirationDate:
-    day: 0
-    month: 0
-    year: 0
+    day: 26
+    month: 12
+    year: 2455
   passportPrefab: {fileID: 2335063765079734471, guid: a2b78c089bcdc734896638db64c0a5f9,
     type: 3}
   workerCardPrefab: {fileID: 8353596192583796318, guid: c8904e957247d024aa02904c5807c229,
@@ -70,7 +70,7 @@ MonoBehaviour:
     type: 3}
   weaponLicensePrefab: {fileID: 5411880434899400936, guid: f8126d206ab2fb743973451aba626fbd,
     type: 3}
-  errorPercent: 100
+  errorPercent: 40
   docSpawnCanvas: {fileID: 0}
   docSpawnPos: {x: 0, y: -100, z: 0}
   cargoList:
@@ -84,22 +84,22 @@ MonoBehaviour:
   - Animaux
   allRacesData:
   - invalidDataParams:
-      minWeight: 0
-      maxWeight: 0
-      minHeight: 0
-      maxHeight: 0
+      minWeight: 10
+      maxWeight: 20
+      minHeight: 30
+      maxHeight: 60
       minBirthday:
-        day: 1
-        month: 1
-        year: 2200
+        day: 14
+        month: 9
+        year: 2198
       maxBirthday:
-        day: 31
-        month: 12
-        year: 2300
+        day: 27
+        month: 5
+        year: 2351
       minExpirationDate:
-        day: 1
-        month: 1
-        year: 50
+        day: 5
+        month: 8
+        year: 2451
       minDocCreationDate:
         day: 0
         month: 0
@@ -112,7 +112,7 @@ MonoBehaviour:
     minBirthday:
       day: 1
       month: 1
-      year: 2340
+      year: 2382
     maxBirthday:
       day: 31
       month: 12
@@ -142,9 +142,9 @@ MonoBehaviour:
     defaultPlanet: 0
     planetsIcon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
     minWeight: 45
-    maxWeight: 150
-    minHeight: 150
-    maxHeight: 190
+    maxWeight: 90
+    minHeight: 155
+    maxHeight: 185
     possibleSexes:
     - M
     - F
@@ -165,31 +165,35 @@ MonoBehaviour:
     - Shrouxe
     photos:
     - {fileID: 21300000, guid: 49e958cb688a28c4ab52fdf8306a8e18, type: 3}
+    - {fileID: 21300000, guid: 76a4c2ee89bd5df40931b6619563ebca, type: 3}
+    - {fileID: 21300000, guid: fe1a4d893e259db4ab3cb1ad06cac4d2, type: 3}
+    - {fileID: 21300000, guid: b3ad4c221fac7b643b64011356199161, type: 3}
+    - {fileID: 21300000, guid: c66e45866ea1730478d80cdfec78e3d8, type: 3}
     agencies:
     - name: HumanAgency
-      seal: {fileID: 0}
+      seal: {fileID: 21300000, guid: 22a876decfbdd434abdc86df9da0e6c2, type: 3}
       sign: HumanAgency
-    seal: {fileID: 0}
+    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
     enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
   - invalidDataParams:
-      minWeight: 0
-      maxWeight: 0
-      minHeight: 0
-      maxHeight: 0
+      minWeight: 43
+      maxWeight: 90
+      minHeight: 90
+      maxHeight: 250
       minBirthday:
-        day: 0
-        month: 0
-        year: 0
+        day: 1
+        month: 1
+        year: 2210
       maxBirthday:
-        day: 0
-        month: 0
-        year: 0
+        day: 1
+        month: 1
+        year: 2297
       minExpirationDate:
-        day: 0
-        month: 0
-        year: 0
+        day: 1
+        month: 1
+        year: 2451
       minDocCreationDate:
         day: 0
         month: 0
@@ -200,13 +204,13 @@ MonoBehaviour:
         year: 0
     race: Skyddles
     minBirthday:
-      day: 1
-      month: 1
-      year: 2300
+      day: 2
+      month: 4
+      year: 2304
     maxBirthday:
-      day: 31
-      month: 12
-      year: 2452
+      day: 14
+      month: 9
+      year: 2447
     firstNames:
     - Corki
     - Loki
@@ -247,9 +251,9 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 35fe61784e7b42b428fb06c7e8dfcd17, type: 3}
     agencies:
     - name: 
-      seal: {fileID: 0}
+      seal: {fileID: 21300000, guid: 0db070dafa571ef4e9b8841e951ef302, type: 3}
       sign: 
-    seal: {fileID: 0}
+    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
     enterAnim: {fileID: 7400000, guid: 1eb908539fb82c846bd33ca0b3fc0832, type: 2}
     allowedAnim: {fileID: 7400000, guid: 780e971427c3cd248b718a3d843852fd, type: 2}
     deniedAnim: {fileID: 7400000, guid: 780e971427c3cd248b718a3d843852fd, type: 2}
@@ -319,29 +323,29 @@ MonoBehaviour:
     - {fileID: 21300000, guid: d9309d9510ef7ad4b8a00dd55484a7f6, type: 3}
     agencies:
     - name: 
-      seal: {fileID: 0}
+      seal: {fileID: 21300000, guid: 6b9c9d437ea45124eb408839724cc9ab, type: 3}
       sign: 
-    seal: {fileID: 0}
+    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
     enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
     allowedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
     deniedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
   - invalidDataParams:
-      minWeight: 0
-      maxWeight: 0
-      minHeight: 0
-      maxHeight: 0
+      minWeight: 10
+      maxWeight: 50
+      minHeight: 100
+      maxHeight: 132
       minBirthday:
-        day: 0
-        month: 0
-        year: 0
+        day: 1
+        month: 1
+        year: 2416
       maxBirthday:
-        day: 0
-        month: 0
-        year: 0
+        day: 14
+        month: 9
+        year: 2424
       minExpirationDate:
-        day: 0
-        month: 0
-        year: 0
+        day: 12
+        month: 5
+        year: 2451
       minDocCreationDate:
         day: 0
         month: 0
@@ -352,13 +356,13 @@ MonoBehaviour:
         year: 0
     race: Mek'ha
     minBirthday:
-      day: 1
-      month: 1
-      year: 2400
+      day: 14
+      month: 11
+      year: 2432
     maxBirthday:
-      day: 31
-      month: 12
-      year: 2452
+      day: 14
+      month: 9
+      year: 2449
     firstNames:
     - Strider
     - Walker
@@ -375,8 +379,8 @@ MonoBehaviour:
     planetsIcon: {fileID: 21300000, guid: 5a6876a0bf10f184d9f7194e7fc7aed4, type: 3}
     minWeight: 80
     maxWeight: 150
-    minHeight: 180
-    maxHeight: 200
+    minHeight: 150
+    maxHeight: 190
     possibleSexes:
     - NB
     cities:
@@ -391,29 +395,29 @@ MonoBehaviour:
     - {fileID: 21300000, guid: c55d53528b1db8a49b616ad7f358bb2a, type: 3}
     agencies:
     - name: 
-      seal: {fileID: 0}
+      seal: {fileID: 21300000, guid: def71e69873600740bc12f20e89b801c, type: 3}
       sign: 
-    seal: {fileID: 0}
+    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
     enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
   - invalidDataParams:
-      minWeight: 0
-      maxWeight: 0
-      minHeight: 0
-      maxHeight: 0
+      minWeight: 10
+      maxWeight: 40
+      minHeight: 110
+      maxHeight: 142
       minBirthday:
-        day: 0
-        month: 0
-        year: 0
+        day: 1
+        month: 1
+        year: 2416
       maxBirthday:
-        day: 0
-        month: 0
-        year: 0
+        day: 14
+        month: 9
+        year: 2424
       minExpirationDate:
-        day: 0
-        month: 0
-        year: 0
+        day: 14
+        month: 6
+        year: 2452
       minDocCreationDate:
         day: 0
         month: 0
@@ -445,10 +449,10 @@ MonoBehaviour:
     lastNames: []
     defaultPlanet: 0
     planetsIcon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
-    minWeight: 160
-    maxWeight: 240
-    minHeight: 60
-    maxHeight: 180
+    minWeight: 60
+    maxWeight: 180
+    minHeight: 170
+    maxHeight: 240
     possibleSexes:
     - NB
     - F
@@ -478,9 +482,9 @@ MonoBehaviour:
     - {fileID: 21300000, guid: ac078773e75ffda42a3960c498ae2546, type: 3}
     agencies:
     - name: 
-      seal: {fileID: 0}
+      seal: {fileID: 21300000, guid: f79d76e46728d7b45bb407a15e1498de, type: 3}
       sign: 
-    seal: {fileID: 0}
+    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
     enterAnim: {fileID: 7400000, guid: 76a7bb51af1bbff43af5c84c1d0124e8, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
@@ -543,9 +547,9 @@ MonoBehaviour:
     - {fileID: 21300000, guid: cbfff9a0866cd9945b47bbe24370a2f7, type: 3}
     agencies:
     - name: 
-      seal: {fileID: 0}
+      seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
       sign: 
-    seal: {fileID: 0}
+    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
     enterAnim: {fileID: 7400000, guid: f2f68c213da5e9b4cb56ff036bc626e1, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
@@ -613,9 +617,9 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 6e0c65383fb564e4991e2d244cdd5bbd, type: 3}
     agencies:
     - name: 
-      seal: {fileID: 0}
+      seal: {fileID: 21300000, guid: 739a61753d7bae242b1ae9ca0154b9b9, type: 3}
       sign: 
-    seal: {fileID: 0}
+    seal: {fileID: 21300000, guid: 8d01e8b07043e2148b1df588f3fee5ee, type: 3}
     enterAnim: {fileID: 7400000, guid: 76a7bb51af1bbff43af5c84c1d0124e8, type: 2}
     allowedAnim: {fileID: 7400000, guid: f00e0628f7acfe04d84da237c0b29ad3, type: 2}
     deniedAnim: {fileID: 7400000, guid: 00aff8ba4d7d7b84986e719f0b33cc3b, type: 2}
@@ -682,12 +686,12 @@ MonoBehaviour:
     deniedSound: {fileID: 8300000, guid: 261b045b27b28d24d94b16b882b6431c, type: 3}
   - photo: {fileID: 21300000, guid: 5c73d3494b7ee384aaf0e1fab17e0aeb, type: 3}
     real: {fileID: 21300000, guid: af690a8fe0762184ea949144cc64ef43, type: 3}
-    enterSound: {fileID: 8300000, guid: e0fdadfd0c1694343b6de6e72467bf94, type: 3}
-    deniedSound: {fileID: 8300000, guid: 261b045b27b28d24d94b16b882b6431c, type: 3}
+    enterSound: {fileID: 8300000, guid: c98ecd8a4029ef248a26131d2b8eade6, type: 3}
+    deniedSound: {fileID: 8300000, guid: c98ecd8a4029ef248a26131d2b8eade6, type: 3}
   - photo: {fileID: 21300000, guid: ac078773e75ffda42a3960c498ae2546, type: 3}
     real: {fileID: 21300000, guid: ec11c2d2cdba7ad44837b0c15413ac6f, type: 3}
-    enterSound: {fileID: 8300000, guid: e0fdadfd0c1694343b6de6e72467bf94, type: 3}
-    deniedSound: {fileID: 8300000, guid: 261b045b27b28d24d94b16b882b6431c, type: 3}
+    enterSound: {fileID: 8300000, guid: c98ecd8a4029ef248a26131d2b8eade6, type: 3}
+    deniedSound: {fileID: 8300000, guid: c98ecd8a4029ef248a26131d2b8eade6, type: 3}
   - photo: {fileID: 21300000, guid: d9309d9510ef7ad4b8a00dd55484a7f6, type: 3}
     real: {fileID: 21300000, guid: 604afc7a910c0af4bab6c8384d8c09b6, type: 3}
     enterSound: {fileID: 8300000, guid: 045987d5420d7794e8cac9fbd1afac25, type: 3}
@@ -698,8 +702,8 @@ MonoBehaviour:
     deniedSound: {fileID: 8300000, guid: 35f2b621bddda794ba3b97ad36600a53, type: 3}
   - photo: {fileID: 21300000, guid: cbfff9a0866cd9945b47bbe24370a2f7, type: 3}
     real: {fileID: 21300000, guid: 8e04db416e0e05d46a879de65689d059, type: 3}
-    enterSound: {fileID: 8300000, guid: e0fdadfd0c1694343b6de6e72467bf94, type: 3}
-    deniedSound: {fileID: 8300000, guid: 261b045b27b28d24d94b16b882b6431c, type: 3}
+    enterSound: {fileID: 0}
+    deniedSound: {fileID: 0}
   - photo: {fileID: 21300000, guid: 06f448036c735ab42801599b014011e9, type: 3}
     real: {fileID: 21300000, guid: 4d78ec1353c8751478ccec4fd82f2e5d, type: 3}
     enterSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
@@ -712,8 +716,34 @@ MonoBehaviour:
     real: {fileID: 21300000, guid: 3e8fa25b39ef0fe4383ffed3b74653a1, type: 3}
     enterSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
     deniedSound: {fileID: 8300000, guid: 3f67f6473e23d78448d43300c9a607a6, type: 3}
-  planetsData: []
-  workerCardPercent: 100
+  - photo: {fileID: 21300000, guid: 76a4c2ee89bd5df40931b6619563ebca, type: 3}
+    real: {fileID: 21300000, guid: f9e256580b3df054b9f6a15b2340da82, type: 3}
+    enterSound: {fileID: 8300000, guid: c7a0366fedc5fd04aa8fbc3539c5f436, type: 3}
+    deniedSound: {fileID: 8300000, guid: 139ae598714621441bccdf657b4458da, type: 3}
+  - photo: {fileID: 21300000, guid: fe1a4d893e259db4ab3cb1ad06cac4d2, type: 3}
+    real: {fileID: 21300000, guid: 1060f99aa67db694785e192b98924751, type: 3}
+    enterSound: {fileID: 8300000, guid: 4b7b4b8e331ef6b4382e5d93a1aa5c0f, type: 3}
+    deniedSound: {fileID: 8300000, guid: 0b3c99ef5ef40a14499e5778087720e8, type: 3}
+  - photo: {fileID: 21300000, guid: b3ad4c221fac7b643b64011356199161, type: 3}
+    real: {fileID: 21300000, guid: 95dd77346d80ea24585dd49a5538581c, type: 3}
+    enterSound: {fileID: 8300000, guid: 5efd6905552a8f64abcbae744b069094, type: 3}
+    deniedSound: {fileID: 8300000, guid: c032da26d10aba644bb73f8b42c38b94, type: 3}
+  - photo: {fileID: 21300000, guid: c66e45866ea1730478d80cdfec78e3d8, type: 3}
+    real: {fileID: 21300000, guid: 942eb138f5c953a4388e745f03143870, type: 3}
+    enterSound: {fileID: 8300000, guid: 1666933f0d70fae498105891f6b6323d, type: 3}
+    deniedSound: {fileID: 8300000, guid: f0f2187cebd55874ea58b79aeebbc8d0, type: 3}
+  planetsData:
+  - planet: 0
+    icon: {fileID: 21300000, guid: c9bf502958e24844487c069dc1d745a1, type: 3}
+  - planet: 1
+    icon: {fileID: 21300000, guid: 5a6876a0bf10f184d9f7194e7fc7aed4, type: 3}
+  - planet: 2
+    icon: {fileID: 21300000, guid: 47873e752d558d74aadca9bec0ecb980, type: 3}
+  - planet: 3
+    icon: {fileID: 21300000, guid: 3538607bc685ae24591e54f8f578c912, type: 3}
+  - planet: 4
+    icon: {fileID: 21300000, guid: d2197d266441eae4d9f8a1f64241f538, type: 3}
+  workerCardPercent: 20
   deliveryCardPercent: 20
-  diplomaticLetterPercent: 7
-  weaponLicensePercent: 7
+  diplomaticLetterPercent: 0
+  weaponLicensePercent: 20

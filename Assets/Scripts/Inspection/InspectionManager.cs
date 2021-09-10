@@ -52,6 +52,10 @@ public class InspectionManager : MonoBehaviour
 
     [SerializeField]
     int currentScore = 0;
+
+    [SerializeField]
+    News news;
+
     public int CurrentScore
     {
         get { return currentScore; }
@@ -168,6 +172,30 @@ public class InspectionManager : MonoBehaviour
         return null;
     }
 
+    string CheckIncoherenceWithPlanet(InspectionItem item1, InspectionItem item2)
+    {
+        InspectionItem planetItem;
+        InspectionItem otherItem;
+
+        GetDataTypeItem(DataType.Race, item1, item2, out planetItem, out otherItem);
+        if (planetItem != null)
+        {
+            switch (otherItem.info.type)
+            {
+                case DataType.City:
+                    if (immigrantRandomizer.IsCityOnPlanet(otherItem.info.value, planetItem.info.value))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return "La ville ne correspond pas avecc la planète.";
+                    }
+            }
+        }
+        return null;
+    }
+
     string CheckIncoherenceWithoutRules(InspectionItem item1, InspectionItem item2)
     {
         if (item1.info.type == item2.info.type && item1.info.type != DataType.ExpirationDate)
@@ -191,6 +219,10 @@ public class InspectionManager : MonoBehaviour
             string s;
 
             s = CheckIncoherenceWithRace(item1, item2);
+            if (s != null)
+                return s;
+
+            s = CheckIncoherenceWithPlanet(item1, item2);
             if (s != null)
                 return s;
         }
@@ -253,10 +285,14 @@ public class InspectionManager : MonoBehaviour
         inspectedItems[1] = null;
         currentImmigrant = Instantiate(characterPrefab, parentTransform).GetComponent<Immigrant>();
         immigrantRandomizer.SetRandomData(currentImmigrant);
+        currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).enterSound;
+        currentImmigrant.audioSource.Play();
     }
 
     private void Start()
     {
+        news.dateRule.CurrentDate = immigrantRandomizer.currentDate;
+
         if (currentImmigrant == null)
         {
             GenerateNewImmigrant();
@@ -280,7 +316,7 @@ public class InspectionManager : MonoBehaviour
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
         currentImmigrant.anim.SetInteger("decision", 2);
 
-        //currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).enterSound;
+        currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).enterSound;
 
         StartCoroutine(OnImmigrantLeave());
     }
@@ -302,7 +338,7 @@ public class InspectionManager : MonoBehaviour
         RaceData raceData = immigrantRandomizer.GetRaceData(currentImmigrant.race);
         currentImmigrant.anim.SetInteger("decision", 1);
 
-        //currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).deniedSound;
+        currentImmigrant.audioSource.clip = immigrantRandomizer.GetCharacterData(currentImmigrant.photo).deniedSound;
 
         StartCoroutine(OnImmigrantLeave());
     }
@@ -311,7 +347,7 @@ public class InspectionManager : MonoBehaviour
     {
         lockButtons = true;
         currentImmigrant.RemoveDocuments();
-        //currentImmigrant.audioSource.Play();
+        currentImmigrant.audioSource.Play();
 
         yield return new WaitForSeconds(3);
 
