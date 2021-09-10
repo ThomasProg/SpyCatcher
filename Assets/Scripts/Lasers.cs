@@ -70,6 +70,7 @@ public class Lasers : MonoBehaviour
 
     public void DeactivateLasers()
     {
+        gameObject.SetActive(true);
         if (coroutine != null)
             StopCoroutine(coroutine);
         coroutine = StartCoroutine(LasersAnimOut());
