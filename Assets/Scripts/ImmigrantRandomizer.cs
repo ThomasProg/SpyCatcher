@@ -177,7 +177,7 @@ public class ImmigrantRandomizer : MonoBehaviour
     {
         RaceData raceData = GetRaceData(race);
 
-        return raceData.minBirthday.IsLessThan(birthday);
+        return raceData.minBirthday.IsLessThan(birthday) && birthday.IsLessThan(raceData.maxBirthday);
     }
 
     public bool HasValidPhoto(string race, string photoStr)
