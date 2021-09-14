@@ -428,7 +428,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.464869, g: 0.06132078, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.91541225, g: 0.6462264, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -547,7 +547,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.464869, g: 0.06132078, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.91541225, g: 0.6462264, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -813,16 +813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc99c14b20c1604f9ac618cde0d1ca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 0}
-  text: {fileID: 0}
-  textColor:
-    defaultColor: {r: 0, g: 0, b: 0, a: 0}
-    onClickColor: {r: 0, g: 0, b: 0, a: 0}
-    onHoverColor: {r: 0, g: 0, b: 0, a: 0}
-  buttonSprites:
-    defaultSprite: {fileID: 0}
-    onClickSprite: {fileID: 0}
-    onHoverSprite: {fileID: 0}
 --- !u!114 &609972470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,7 +1368,7 @@ MonoBehaviour:
     m_NormalColor: {r: 0.745283, g: 0.745283, b: 0.745283, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 0.464869, g: 0.06132078, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_SelectedColor: {r: 0.91541225, g: 0.6462264, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
