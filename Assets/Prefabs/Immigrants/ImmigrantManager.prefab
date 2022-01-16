@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3809027019676509596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3809027019676509598}
+  - component: {fileID: 3809027019676509597}
+  - component: {fileID: 3809027019676509599}
+  m_Layer: 0
+  m_Name: ImmigrantManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3809027019676509598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809027019676509596}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 128.78358, y: 110.76659, z: -65.37493}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3809027019676509597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809027019676509596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033cfae5c4ae68347b0fe18d09687809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immigrants: []
+  planets: []
+  concreteImmigrantPrefab: {fileID: 0}
+  immigrantParent: {fileID: 0}
+  doc1Prefab: {fileID: 0}
+  parent: {fileID: 0}
+--- !u!114 &3809027019676509599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3809027019676509596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033cfae5c4ae68347b0fe18d09687809, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  immigrants:
+  - {fileID: 7750696648206786740, guid: 54b1fc3b8c33cdb409b6d09b3499a377, type: 3}
+  planets: []
+  concreteImmigrantPrefab: {fileID: 3983658021691942844, guid: 83089912eab56144b939b09cc9758db1,
+    type: 3}
+  immigrantParent: {fileID: 0}
+  doc1Prefab: {fileID: 6516714494710260188, guid: 2a496ae6f53f37b41b1208402ebae1ce,
+    type: 3}
+  parent: {fileID: 0}

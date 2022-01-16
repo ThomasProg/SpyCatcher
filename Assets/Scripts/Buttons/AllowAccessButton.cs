@@ -10,6 +10,7 @@ public class AllowAccessButton : MonoBehaviour
 	[SerializeField] bool isAllowingNotDenying = true;
 	private Button button;
 	private InspectionManager inspectionManager;
+	private ImmigrantManager immigrantManager;
 
 	[SerializeField]
 	private AudioClip onPressSound;
@@ -49,16 +50,18 @@ public class AllowAccessButton : MonoBehaviour
 		AddCallback(eventTrigger, EventTriggerType.PointerDown, OnMouseDown);
 		AddCallback(eventTrigger, EventTriggerType.PointerDown, OnMouseUp);
 
-		inspectionManager = GameObject.Find("InspectionManager").GetComponent<InspectionManager>();
-		Debug.Assert(inspectionManager != null);
+		//inspectionManager = GameObject.Find("InspectionManager").GetComponent<InspectionManager>();
+		//Debug.Assert(inspectionManager != null);
+
+		immigrantManager = GameObject.Find("ImmigrantManager").GetComponent<ImmigrantManager>();
 	}
 
 	void OnClick()
 	{
 		if (isAllowingNotDenying)
-			inspectionManager.AllowAccess();
+			immigrantManager.AllowAccess();
 		else
-			inspectionManager.DenyAccess();
+			immigrantManager.DenyAccess();
 	}
 
 	void OnMouseDown(BaseEventData e)

@@ -58,6 +58,30 @@ public struct Date
         //if (day > another.day)
         return false;
     }
+
+    static public Date GetRandomDate(Date min, Date max)
+    {
+        Date randDate;
+        randDate.year = Random.Range(min.year, max.year + 1);
+
+        int minMonth = 1;
+        if (randDate.year == min.year)
+            minMonth = min.month;
+        int maxMonth = 12;
+        if (randDate.year == max.year)
+            maxMonth = max.month;
+        randDate.month = Random.Range(minMonth, maxMonth);
+
+        int minDay = 1;
+        if (randDate.year == min.year && randDate.month == min.month)
+            minDay = min.day;
+        int maxDay = 28;
+        if (randDate.year == max.year && randDate.month == max.month)
+            maxDay = max.day;
+        randDate.day = Random.Range(minDay, maxDay);
+
+        return randDate;
+    }
 };
 
 [System.Serializable]
