@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SpriteAtlass
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 21300000, guid: 1550afbb2d8970b47b4995e4a043b953, type: 3}
+    - {fileID: 21300000, guid: cc255b9b829d76b4da3a0d3671caa8e0, type: 3}
+    - {fileID: 21300000, guid: 1550afbb2d8970b47b4995e4a043b953, type: 3}
+    - {fileID: 21300000, guid: 993f7222c141cb74b9db7727cbf4a468, type: 3}
+    - {fileID: 21300000, guid: 39ceed3ac4903a748954c12833e40d62, type: 3}
+    - {fileID: 21300000, guid: af341c8c231c5584e97ea4d287ff9aa1, type: 3}
+    - {fileID: 21300000, guid: 9260de02eda702149998d6227ac8aeae, type: 3}
+    - {fileID: 21300000, guid: 27a8dba914b92204a9dac4363f8893ae, type: 3}
+    - {fileID: 21300000, guid: 61cb0f5b4205cc44f91da58cda23a486, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 9260de02eda702149998d6227ac8aeae, type: 3}
+  - {fileID: 21300000, guid: 993f7222c141cb74b9db7727cbf4a468, type: 3}
+  - {fileID: 21300000, guid: 27a8dba914b92204a9dac4363f8893ae, type: 3}
+  - {fileID: 21300000, guid: 39ceed3ac4903a748954c12833e40d62, type: 3}
+  - {fileID: 21300000, guid: 61cb0f5b4205cc44f91da58cda23a486, type: 3}
+  - {fileID: 21300000, guid: cc255b9b829d76b4da3a0d3671caa8e0, type: 3}
+  - {fileID: 21300000, guid: 1550afbb2d8970b47b4995e4a043b953, type: 3}
+  - {fileID: 21300000, guid: af341c8c231c5584e97ea4d287ff9aa1, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - "Bouton_Valid\xE9_Eteinds"
+  - "Bouton_Refus\xE9_Allum\xE9"
+  - Bouton_Droit
+  - "Bouton_Valid\xE9_Allum\xE9"
+  - Bouton_Gauche
+  - Bureau
+  - Background_Document
+  - "Bouton_Refus\xE9_Eteinds"
+  m_Tag: SpriteAtlass
+  m_IsVariant: 0
